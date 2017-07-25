@@ -21,7 +21,7 @@ namespace Genesys.Authorization.Api
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public interface IAuthServerApi : IApiAccessor
+    public interface IAuthenticationApi : IApiAccessor
     {
         #region Synchronous Operations
         /// <summary>
@@ -392,15 +392,15 @@ namespace Genesys.Authorization.Api
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public partial class AuthServerApi : IAuthServerApi
+    public partial class AuthenticationApi : IAuthenticationApi
     {
         private Genesys.Authorization.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="AuthServerApi"/> class.
+        /// Initializes a new instance of the <see cref="AuthenticationApi"/> class.
         /// </summary>
         /// <returns></returns>
-        public AuthServerApi(String basePath)
+        public AuthenticationApi(String basePath)
         {
             this.Configuration = new Configuration(new ApiClient(basePath));
 
@@ -414,12 +414,12 @@ namespace Genesys.Authorization.Api
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="AuthServerApi"/> class
+        /// Initializes a new instance of the <see cref="AuthenticationApi"/> class
         /// using Configuration object
         /// </summary>
         /// <param name="configuration">An instance of Configuration</param>
         /// <returns></returns>
-        public AuthServerApi(Configuration configuration = null)
+        public AuthenticationApi(Configuration configuration = null)
         {
             if (configuration == null) // use the default one in Configuration
                 this.Configuration = Configuration.Default;
@@ -525,13 +525,13 @@ namespace Genesys.Authorization.Api
         {
             // verify the required parameter 'responseType' is set
             if (responseType == null)
-                throw new ApiException(400, "Missing required parameter 'responseType' when calling AuthServerApi->Authorize");
+                throw new ApiException(400, "Missing required parameter 'responseType' when calling AuthenticationApi->Authorize");
             // verify the required parameter 'clientId' is set
             if (clientId == null)
-                throw new ApiException(400, "Missing required parameter 'clientId' when calling AuthServerApi->Authorize");
+                throw new ApiException(400, "Missing required parameter 'clientId' when calling AuthenticationApi->Authorize");
             // verify the required parameter 'redirectUri' is set
             if (redirectUri == null)
-                throw new ApiException(400, "Missing required parameter 'redirectUri' when calling AuthServerApi->Authorize");
+                throw new ApiException(400, "Missing required parameter 'redirectUri' when calling AuthenticationApi->Authorize");
 
             var localVarPath = "/oauth/authorize";
             var localVarPathParams = new Dictionary<String, String>();
@@ -611,13 +611,13 @@ namespace Genesys.Authorization.Api
         {
             // verify the required parameter 'responseType' is set
             if (responseType == null)
-                throw new ApiException(400, "Missing required parameter 'responseType' when calling AuthServerApi->Authorize");
+                throw new ApiException(400, "Missing required parameter 'responseType' when calling AuthenticationApi->Authorize");
             // verify the required parameter 'clientId' is set
             if (clientId == null)
-                throw new ApiException(400, "Missing required parameter 'clientId' when calling AuthServerApi->Authorize");
+                throw new ApiException(400, "Missing required parameter 'clientId' when calling AuthenticationApi->Authorize");
             // verify the required parameter 'redirectUri' is set
             if (redirectUri == null)
-                throw new ApiException(400, "Missing required parameter 'redirectUri' when calling AuthServerApi->Authorize");
+                throw new ApiException(400, "Missing required parameter 'redirectUri' when calling AuthenticationApi->Authorize");
 
             var localVarPath = "/oauth/authorize";
             var localVarPathParams = new Dictionary<String, String>();
@@ -691,7 +691,7 @@ namespace Genesys.Authorization.Api
         {
             // verify the required parameter 'request' is set
             if (request == null)
-                throw new ApiException(400, "Missing required parameter 'request' when calling AuthServerApi->ChangePassword");
+                throw new ApiException(400, "Missing required parameter 'request' when calling AuthenticationApi->ChangePassword");
 
             var localVarPath = "/change-password";
             var localVarPathParams = new Dictionary<String, String>();
@@ -770,7 +770,7 @@ namespace Genesys.Authorization.Api
         {
             // verify the required parameter 'request' is set
             if (request == null)
-                throw new ApiException(400, "Missing required parameter 'request' when calling AuthServerApi->ChangePassword");
+                throw new ApiException(400, "Missing required parameter 'request' when calling AuthenticationApi->ChangePassword");
 
             var localVarPath = "/change-password";
             var localVarPathParams = new Dictionary<String, String>();
@@ -848,7 +848,7 @@ namespace Genesys.Authorization.Api
         {
             // verify the required parameter 'lookupOperation' is set
             if (lookupOperation == null)
-                throw new ApiException(400, "Missing required parameter 'lookupOperation' when calling AuthServerApi->DomainInfo");
+                throw new ApiException(400, "Missing required parameter 'lookupOperation' when calling AuthenticationApi->DomainInfo");
 
             var localVarPath = "/domain-lookup";
             var localVarPathParams = new Dictionary<String, String>();
@@ -927,7 +927,7 @@ namespace Genesys.Authorization.Api
         {
             // verify the required parameter 'lookupOperation' is set
             if (lookupOperation == null)
-                throw new ApiException(400, "Missing required parameter 'lookupOperation' when calling AuthServerApi->DomainInfo");
+                throw new ApiException(400, "Missing required parameter 'lookupOperation' when calling AuthenticationApi->DomainInfo");
 
             var localVarPath = "/domain-lookup";
             var localVarPathParams = new Dictionary<String, String>();
@@ -1138,7 +1138,7 @@ namespace Genesys.Authorization.Api
         {
             // verify the required parameter 'authorization' is set
             if (authorization == null)
-                throw new ApiException(400, "Missing required parameter 'authorization' when calling AuthServerApi->GetUserInfo");
+                throw new ApiException(400, "Missing required parameter 'authorization' when calling AuthenticationApi->GetUserInfo");
 
             var localVarPath = "/userinfo";
             var localVarPathParams = new Dictionary<String, String>();
@@ -1220,7 +1220,7 @@ namespace Genesys.Authorization.Api
         {
             // verify the required parameter 'authorization' is set
             if (authorization == null)
-                throw new ApiException(400, "Missing required parameter 'authorization' when calling AuthServerApi->GetUserInfo");
+                throw new ApiException(400, "Missing required parameter 'authorization' when calling AuthenticationApi->GetUserInfo");
 
             var localVarPath = "/userinfo";
             var localVarPathParams = new Dictionary<String, String>();
@@ -1454,7 +1454,7 @@ namespace Genesys.Authorization.Api
         {
             // verify the required parameter 'authorization' is set
             if (authorization == null)
-                throw new ApiException(400, "Missing required parameter 'authorization' when calling AuthServerApi->Logout");
+                throw new ApiException(400, "Missing required parameter 'authorization' when calling AuthenticationApi->Logout");
 
             var localVarPath = "/logout";
             var localVarPathParams = new Dictionary<String, String>();
@@ -1529,7 +1529,7 @@ namespace Genesys.Authorization.Api
         {
             // verify the required parameter 'authorization' is set
             if (authorization == null)
-                throw new ApiException(400, "Missing required parameter 'authorization' when calling AuthServerApi->Logout");
+                throw new ApiException(400, "Missing required parameter 'authorization' when calling AuthenticationApi->Logout");
 
             var localVarPath = "/logout";
             var localVarPathParams = new Dictionary<String, String>();
