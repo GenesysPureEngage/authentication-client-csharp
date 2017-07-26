@@ -192,8 +192,13 @@ namespace Genesys.Authorization.Api
         /// Can be called directly for Client Credential and Resource Owner Code flow.  Resource Owner example:   &#x60;curl client_name:client_secret@localhost:8095/oauth/token -d grant_type&#x3D;password -d client_id&#x3D;external_api_client-d scope&#x3D;openid -d username&#x3D;domain\\\\user -d password&#x3D;password&#x60;   Client credentials example:   &#x60;curl client_name:client_secret@localhost:8095/oauth/token -d grant_type&#x3D;client_credentials -d scope&#x3D;openid&#x60;
         /// </remarks>
         /// <exception cref="Genesys.Authorization.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="grantType">Grant type</param>
+        /// <param name="clientId">Client ID (id of application/service registered as client in IDP)</param>
+        /// <param name="username">ConfigServer person username</param>
+        /// <param name="password">ConfigServer person password</param>
+        /// <param name="authorization">Basic authorization. Should contains client_id and secret Example: &#39;Authorization: Basic Y3...MQ&#x3D;&#x3D;&#39; (optional)</param>
         /// <returns>DefaultOAuth2AccessToken</returns>
-        DefaultOAuth2AccessToken RetrieveToken ();
+        DefaultOAuth2AccessToken RetrieveToken (string grantType, string clientId, string username, string password, string authorization = null);
 
         /// <summary>
         /// Endpoint to retrieve token
@@ -202,8 +207,13 @@ namespace Genesys.Authorization.Api
         /// Can be called directly for Client Credential and Resource Owner Code flow.  Resource Owner example:   &#x60;curl client_name:client_secret@localhost:8095/oauth/token -d grant_type&#x3D;password -d client_id&#x3D;external_api_client-d scope&#x3D;openid -d username&#x3D;domain\\\\user -d password&#x3D;password&#x60;   Client credentials example:   &#x60;curl client_name:client_secret@localhost:8095/oauth/token -d grant_type&#x3D;client_credentials -d scope&#x3D;openid&#x60;
         /// </remarks>
         /// <exception cref="Genesys.Authorization.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="grantType">Grant type</param>
+        /// <param name="clientId">Client ID (id of application/service registered as client in IDP)</param>
+        /// <param name="username">ConfigServer person username</param>
+        /// <param name="password">ConfigServer person password</param>
+        /// <param name="authorization">Basic authorization. Should contains client_id and secret Example: &#39;Authorization: Basic Y3...MQ&#x3D;&#x3D;&#39; (optional)</param>
         /// <returns>ApiResponse of DefaultOAuth2AccessToken</returns>
-        ApiResponse<DefaultOAuth2AccessToken> RetrieveTokenWithHttpInfo ();
+        ApiResponse<DefaultOAuth2AccessToken> RetrieveTokenWithHttpInfo (string grantType, string clientId, string username, string password, string authorization = null);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -374,8 +384,13 @@ namespace Genesys.Authorization.Api
         /// Can be called directly for Client Credential and Resource Owner Code flow.  Resource Owner example:   &#x60;curl client_name:client_secret@localhost:8095/oauth/token -d grant_type&#x3D;password -d client_id&#x3D;external_api_client-d scope&#x3D;openid -d username&#x3D;domain\\\\user -d password&#x3D;password&#x60;   Client credentials example:   &#x60;curl client_name:client_secret@localhost:8095/oauth/token -d grant_type&#x3D;client_credentials -d scope&#x3D;openid&#x60;
         /// </remarks>
         /// <exception cref="Genesys.Authorization.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="grantType">Grant type</param>
+        /// <param name="clientId">Client ID (id of application/service registered as client in IDP)</param>
+        /// <param name="username">ConfigServer person username</param>
+        /// <param name="password">ConfigServer person password</param>
+        /// <param name="authorization">Basic authorization. Should contains client_id and secret Example: &#39;Authorization: Basic Y3...MQ&#x3D;&#x3D;&#39; (optional)</param>
         /// <returns>Task of DefaultOAuth2AccessToken</returns>
-        System.Threading.Tasks.Task<DefaultOAuth2AccessToken> RetrieveTokenAsync ();
+        System.Threading.Tasks.Task<DefaultOAuth2AccessToken> RetrieveTokenAsync (string grantType, string clientId, string username, string password, string authorization = null);
 
         /// <summary>
         /// Endpoint to retrieve token
@@ -384,8 +399,13 @@ namespace Genesys.Authorization.Api
         /// Can be called directly for Client Credential and Resource Owner Code flow.  Resource Owner example:   &#x60;curl client_name:client_secret@localhost:8095/oauth/token -d grant_type&#x3D;password -d client_id&#x3D;external_api_client-d scope&#x3D;openid -d username&#x3D;domain\\\\user -d password&#x3D;password&#x60;   Client credentials example:   &#x60;curl client_name:client_secret@localhost:8095/oauth/token -d grant_type&#x3D;client_credentials -d scope&#x3D;openid&#x60;
         /// </remarks>
         /// <exception cref="Genesys.Authorization.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="grantType">Grant type</param>
+        /// <param name="clientId">Client ID (id of application/service registered as client in IDP)</param>
+        /// <param name="username">ConfigServer person username</param>
+        /// <param name="password">ConfigServer person password</param>
+        /// <param name="authorization">Basic authorization. Should contains client_id and secret Example: &#39;Authorization: Basic Y3...MQ&#x3D;&#x3D;&#39; (optional)</param>
         /// <returns>Task of ApiResponse (DefaultOAuth2AccessToken)</returns>
-        System.Threading.Tasks.Task<ApiResponse<DefaultOAuth2AccessToken>> RetrieveTokenAsyncWithHttpInfo ();
+        System.Threading.Tasks.Task<ApiResponse<DefaultOAuth2AccessToken>> RetrieveTokenAsyncWithHttpInfo (string grantType, string clientId, string username, string password, string authorization = null);
         #endregion Asynchronous Operations
     }
 
@@ -1583,10 +1603,15 @@ namespace Genesys.Authorization.Api
         /// Endpoint to retrieve token Can be called directly for Client Credential and Resource Owner Code flow.  Resource Owner example:   &#x60;curl client_name:client_secret@localhost:8095/oauth/token -d grant_type&#x3D;password -d client_id&#x3D;external_api_client-d scope&#x3D;openid -d username&#x3D;domain\\\\user -d password&#x3D;password&#x60;   Client credentials example:   &#x60;curl client_name:client_secret@localhost:8095/oauth/token -d grant_type&#x3D;client_credentials -d scope&#x3D;openid&#x60;
         /// </summary>
         /// <exception cref="Genesys.Authorization.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="grantType">Grant type</param>
+        /// <param name="clientId">Client ID (id of application/service registered as client in IDP)</param>
+        /// <param name="username">ConfigServer person username</param>
+        /// <param name="password">ConfigServer person password</param>
+        /// <param name="authorization">Basic authorization. Should contains client_id and secret Example: &#39;Authorization: Basic Y3...MQ&#x3D;&#x3D;&#39; (optional)</param>
         /// <returns>DefaultOAuth2AccessToken</returns>
-        public DefaultOAuth2AccessToken RetrieveToken ()
+        public DefaultOAuth2AccessToken RetrieveToken (string grantType, string clientId, string username, string password, string authorization = null)
         {
-             ApiResponse<DefaultOAuth2AccessToken> localVarResponse = RetrieveTokenWithHttpInfo();
+             ApiResponse<DefaultOAuth2AccessToken> localVarResponse = RetrieveTokenWithHttpInfo(grantType, clientId, username, password, authorization);
              return localVarResponse.Data;
         }
 
@@ -1594,9 +1619,26 @@ namespace Genesys.Authorization.Api
         /// Endpoint to retrieve token Can be called directly for Client Credential and Resource Owner Code flow.  Resource Owner example:   &#x60;curl client_name:client_secret@localhost:8095/oauth/token -d grant_type&#x3D;password -d client_id&#x3D;external_api_client-d scope&#x3D;openid -d username&#x3D;domain\\\\user -d password&#x3D;password&#x60;   Client credentials example:   &#x60;curl client_name:client_secret@localhost:8095/oauth/token -d grant_type&#x3D;client_credentials -d scope&#x3D;openid&#x60;
         /// </summary>
         /// <exception cref="Genesys.Authorization.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="grantType">Grant type</param>
+        /// <param name="clientId">Client ID (id of application/service registered as client in IDP)</param>
+        /// <param name="username">ConfigServer person username</param>
+        /// <param name="password">ConfigServer person password</param>
+        /// <param name="authorization">Basic authorization. Should contains client_id and secret Example: &#39;Authorization: Basic Y3...MQ&#x3D;&#x3D;&#39; (optional)</param>
         /// <returns>ApiResponse of DefaultOAuth2AccessToken</returns>
-        public ApiResponse< DefaultOAuth2AccessToken > RetrieveTokenWithHttpInfo ()
+        public ApiResponse< DefaultOAuth2AccessToken > RetrieveTokenWithHttpInfo (string grantType, string clientId, string username, string password, string authorization = null)
         {
+            // verify the required parameter 'grantType' is set
+            if (grantType == null)
+                throw new ApiException(400, "Missing required parameter 'grantType' when calling AuthenticationApi->RetrieveToken");
+            // verify the required parameter 'clientId' is set
+            if (clientId == null)
+                throw new ApiException(400, "Missing required parameter 'clientId' when calling AuthenticationApi->RetrieveToken");
+            // verify the required parameter 'username' is set
+            if (username == null)
+                throw new ApiException(400, "Missing required parameter 'username' when calling AuthenticationApi->RetrieveToken");
+            // verify the required parameter 'password' is set
+            if (password == null)
+                throw new ApiException(400, "Missing required parameter 'password' when calling AuthenticationApi->RetrieveToken");
 
             var localVarPath = "/oauth/token";
             var localVarPathParams = new Dictionary<String, String>();
@@ -1623,6 +1665,11 @@ namespace Genesys.Authorization.Api
             // set "format" to json by default
             // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
             localVarPathParams.Add("format", "json");
+            if (grantType != null) localVarQueryParams.Add("grant_type", Configuration.ApiClient.ParameterToString(grantType)); // query parameter
+            if (clientId != null) localVarQueryParams.Add("client_id", Configuration.ApiClient.ParameterToString(clientId)); // query parameter
+            if (username != null) localVarQueryParams.Add("username", Configuration.ApiClient.ParameterToString(username)); // query parameter
+            if (password != null) localVarQueryParams.Add("password", Configuration.ApiClient.ParameterToString(password)); // query parameter
+            if (authorization != null) localVarHeaderParams.Add("Authorization", Configuration.ApiClient.ParameterToString(authorization)); // header parameter
 
 
             // make the HTTP request
@@ -1648,10 +1695,15 @@ namespace Genesys.Authorization.Api
         /// Endpoint to retrieve token Can be called directly for Client Credential and Resource Owner Code flow.  Resource Owner example:   &#x60;curl client_name:client_secret@localhost:8095/oauth/token -d grant_type&#x3D;password -d client_id&#x3D;external_api_client-d scope&#x3D;openid -d username&#x3D;domain\\\\user -d password&#x3D;password&#x60;   Client credentials example:   &#x60;curl client_name:client_secret@localhost:8095/oauth/token -d grant_type&#x3D;client_credentials -d scope&#x3D;openid&#x60;
         /// </summary>
         /// <exception cref="Genesys.Authorization.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="grantType">Grant type</param>
+        /// <param name="clientId">Client ID (id of application/service registered as client in IDP)</param>
+        /// <param name="username">ConfigServer person username</param>
+        /// <param name="password">ConfigServer person password</param>
+        /// <param name="authorization">Basic authorization. Should contains client_id and secret Example: &#39;Authorization: Basic Y3...MQ&#x3D;&#x3D;&#39; (optional)</param>
         /// <returns>Task of DefaultOAuth2AccessToken</returns>
-        public async System.Threading.Tasks.Task<DefaultOAuth2AccessToken> RetrieveTokenAsync ()
+        public async System.Threading.Tasks.Task<DefaultOAuth2AccessToken> RetrieveTokenAsync (string grantType, string clientId, string username, string password, string authorization = null)
         {
-             ApiResponse<DefaultOAuth2AccessToken> localVarResponse = await RetrieveTokenAsyncWithHttpInfo();
+             ApiResponse<DefaultOAuth2AccessToken> localVarResponse = await RetrieveTokenAsyncWithHttpInfo(grantType, clientId, username, password, authorization);
              return localVarResponse.Data;
 
         }
@@ -1660,9 +1712,26 @@ namespace Genesys.Authorization.Api
         /// Endpoint to retrieve token Can be called directly for Client Credential and Resource Owner Code flow.  Resource Owner example:   &#x60;curl client_name:client_secret@localhost:8095/oauth/token -d grant_type&#x3D;password -d client_id&#x3D;external_api_client-d scope&#x3D;openid -d username&#x3D;domain\\\\user -d password&#x3D;password&#x60;   Client credentials example:   &#x60;curl client_name:client_secret@localhost:8095/oauth/token -d grant_type&#x3D;client_credentials -d scope&#x3D;openid&#x60;
         /// </summary>
         /// <exception cref="Genesys.Authorization.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="grantType">Grant type</param>
+        /// <param name="clientId">Client ID (id of application/service registered as client in IDP)</param>
+        /// <param name="username">ConfigServer person username</param>
+        /// <param name="password">ConfigServer person password</param>
+        /// <param name="authorization">Basic authorization. Should contains client_id and secret Example: &#39;Authorization: Basic Y3...MQ&#x3D;&#x3D;&#39; (optional)</param>
         /// <returns>Task of ApiResponse (DefaultOAuth2AccessToken)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<DefaultOAuth2AccessToken>> RetrieveTokenAsyncWithHttpInfo ()
+        public async System.Threading.Tasks.Task<ApiResponse<DefaultOAuth2AccessToken>> RetrieveTokenAsyncWithHttpInfo (string grantType, string clientId, string username, string password, string authorization = null)
         {
+            // verify the required parameter 'grantType' is set
+            if (grantType == null)
+                throw new ApiException(400, "Missing required parameter 'grantType' when calling AuthenticationApi->RetrieveToken");
+            // verify the required parameter 'clientId' is set
+            if (clientId == null)
+                throw new ApiException(400, "Missing required parameter 'clientId' when calling AuthenticationApi->RetrieveToken");
+            // verify the required parameter 'username' is set
+            if (username == null)
+                throw new ApiException(400, "Missing required parameter 'username' when calling AuthenticationApi->RetrieveToken");
+            // verify the required parameter 'password' is set
+            if (password == null)
+                throw new ApiException(400, "Missing required parameter 'password' when calling AuthenticationApi->RetrieveToken");
 
             var localVarPath = "/oauth/token";
             var localVarPathParams = new Dictionary<String, String>();
@@ -1689,6 +1758,11 @@ namespace Genesys.Authorization.Api
             // set "format" to json by default
             // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
             localVarPathParams.Add("format", "json");
+            if (grantType != null) localVarQueryParams.Add("grant_type", Configuration.ApiClient.ParameterToString(grantType)); // query parameter
+            if (clientId != null) localVarQueryParams.Add("client_id", Configuration.ApiClient.ParameterToString(clientId)); // query parameter
+            if (username != null) localVarQueryParams.Add("username", Configuration.ApiClient.ParameterToString(username)); // query parameter
+            if (password != null) localVarQueryParams.Add("password", Configuration.ApiClient.ParameterToString(password)); // query parameter
+            if (authorization != null) localVarHeaderParams.Add("Authorization", Configuration.ApiClient.ParameterToString(authorization)); // header parameter
 
 
             // make the HTTP request
