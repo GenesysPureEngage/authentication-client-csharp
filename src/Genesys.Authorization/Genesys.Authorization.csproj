@@ -4,7 +4,7 @@ Authorization API
 
 Authorization API
 
-OpenAPI spec version: 9.0.000.00.dev
+OpenAPI spec version: 9.0.000.00.662
 
 -->
 <Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
@@ -12,7 +12,7 @@ OpenAPI spec version: 9.0.000.00.dev
     
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{D2DCD153-F5F4-4C11-B9C9-BDA5D1D00D6D}</ProjectGuid>
+    <ProjectGuid>{D57B2A40-B38B-4836-A735-465037D15EB2}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Genesys.Authorization</RootNamespace>
