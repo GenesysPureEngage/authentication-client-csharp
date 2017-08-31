@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-Authorization API
+Authentication API
 
-Authorization API
+Authentication API
 
-OpenAPI spec version: 9.0.000.00.718
+OpenAPI spec version: 9.0.000.00.756
 
 -->
 <Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
@@ -12,11 +12,11 @@ OpenAPI spec version: 9.0.000.00.718
     
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{E7C972A1-5B64-4335-A378-308E33220764}</ProjectGuid>
+    <ProjectGuid>{83C8A7F1-70EF-456D-8BBB-F72EC8DB6E1B}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Genesys.Authorization</RootNamespace>
-    <AssemblyName>Genesys.Authorization</AssemblyName>
+    <RootNamespace>Genesys.Authentication</RootNamespace>
+    <AssemblyName>Genesys.Authentication</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
