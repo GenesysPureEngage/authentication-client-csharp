@@ -4,7 +4,7 @@ Authentication API
 
 Authentication API
 
-OpenAPI spec version: 9.0.000.00.756
+OpenAPI spec version: 9.0.000.00.764
 
 -->
 <Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
@@ -12,7 +12,7 @@ OpenAPI spec version: 9.0.000.00.756
     
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{3F008BAB-8313-4849-90EB-168DA65368B1}</ProjectGuid>
+    <ProjectGuid>{88238440-6009-44E3-9431-E88910ECD2A5}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Genesys.Authentication</RootNamespace>
