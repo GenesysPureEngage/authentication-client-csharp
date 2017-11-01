@@ -152,60 +152,58 @@ namespace Genesys.Authentication.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as CloudUserDetails);
+            return this.Equals(input as CloudUserDetails);
         }
 
         /// <summary>
         /// Returns true if CloudUserDetails instances are equal
         /// </summary>
-        /// <param name="other">Instance of CloudUserDetails to be compared</param>
+        /// <param name="input">Instance of CloudUserDetails to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(CloudUserDetails other)
+        public bool Equals(CloudUserDetails input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.Authorities == other.Authorities ||
-                    this.Authorities != null &&
-                    this.Authorities.Equals(other.Authorities)
+                    this.Authorities == input.Authorities ||
+                    (this.Authorities != null &&
+                    this.Authorities.Equals(input.Authorities))
                 ) && 
                 (
-                    this.CmeUserName == other.CmeUserName ||
-                    this.CmeUserName != null &&
-                    this.CmeUserName.Equals(other.CmeUserName)
+                    this.CmeUserName == input.CmeUserName ||
+                    (this.CmeUserName != null &&
+                    this.CmeUserName.Equals(input.CmeUserName))
                 ) && 
                 (
-                    this.ContactCenterId == other.ContactCenterId ||
-                    this.ContactCenterId != null &&
-                    this.ContactCenterId.Equals(other.ContactCenterId)
+                    this.ContactCenterId == input.ContactCenterId ||
+                    (this.ContactCenterId != null &&
+                    this.ContactCenterId.Equals(input.ContactCenterId))
                 ) && 
                 (
-                    this.Dbid == other.Dbid ||
-                    this.Dbid != null &&
-                    this.Dbid.Equals(other.Dbid)
+                    this.Dbid == input.Dbid ||
+                    (this.Dbid != null &&
+                    this.Dbid.Equals(input.Dbid))
                 ) && 
                 (
-                    this.EnvironmentId == other.EnvironmentId ||
-                    this.EnvironmentId != null &&
-                    this.EnvironmentId.Equals(other.EnvironmentId)
+                    this.EnvironmentId == input.EnvironmentId ||
+                    (this.EnvironmentId != null &&
+                    this.EnvironmentId.Equals(input.EnvironmentId))
                 ) && 
                 (
-                    this.LoginName == other.LoginName ||
-                    this.LoginName != null &&
-                    this.LoginName.Equals(other.LoginName)
+                    this.LoginName == input.LoginName ||
+                    (this.LoginName != null &&
+                    this.LoginName.Equals(input.LoginName))
                 ) && 
                 (
-                    this.Username == other.Username ||
-                    this.Username != null &&
-                    this.Username.Equals(other.Username)
+                    this.Username == input.Username ||
+                    (this.Username != null &&
+                    this.Username.Equals(input.Username))
                 );
         }
 
@@ -215,26 +213,24 @@ namespace Genesys.Authentication.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.Authorities != null)
-                    hash = hash * 59 + this.Authorities.GetHashCode();
+                    hashCode = hashCode * 59 + this.Authorities.GetHashCode();
                 if (this.CmeUserName != null)
-                    hash = hash * 59 + this.CmeUserName.GetHashCode();
+                    hashCode = hashCode * 59 + this.CmeUserName.GetHashCode();
                 if (this.ContactCenterId != null)
-                    hash = hash * 59 + this.ContactCenterId.GetHashCode();
+                    hashCode = hashCode * 59 + this.ContactCenterId.GetHashCode();
                 if (this.Dbid != null)
-                    hash = hash * 59 + this.Dbid.GetHashCode();
+                    hashCode = hashCode * 59 + this.Dbid.GetHashCode();
                 if (this.EnvironmentId != null)
-                    hash = hash * 59 + this.EnvironmentId.GetHashCode();
+                    hashCode = hashCode * 59 + this.EnvironmentId.GetHashCode();
                 if (this.LoginName != null)
-                    hash = hash * 59 + this.LoginName.GetHashCode();
+                    hashCode = hashCode * 59 + this.LoginName.GetHashCode();
                 if (this.Username != null)
-                    hash = hash * 59 + this.Username.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.Username.GetHashCode();
+                return hashCode;
             }
         }
 

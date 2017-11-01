@@ -88,40 +88,38 @@ namespace Genesys.Authentication.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as ChangePasswordOperation);
+            return this.Equals(input as ChangePasswordOperation);
         }
 
         /// <summary>
         /// Returns true if ChangePasswordOperation instances are equal
         /// </summary>
-        /// <param name="other">Instance of ChangePasswordOperation to be compared</param>
+        /// <param name="input">Instance of ChangePasswordOperation to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ChangePasswordOperation other)
+        public bool Equals(ChangePasswordOperation input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.NewPassword == other.NewPassword ||
-                    this.NewPassword != null &&
-                    this.NewPassword.Equals(other.NewPassword)
+                    this.NewPassword == input.NewPassword ||
+                    (this.NewPassword != null &&
+                    this.NewPassword.Equals(input.NewPassword))
                 ) && 
                 (
-                    this.OldPassword == other.OldPassword ||
-                    this.OldPassword != null &&
-                    this.OldPassword.Equals(other.OldPassword)
+                    this.OldPassword == input.OldPassword ||
+                    (this.OldPassword != null &&
+                    this.OldPassword.Equals(input.OldPassword))
                 ) && 
                 (
-                    this.UserName == other.UserName ||
-                    this.UserName != null &&
-                    this.UserName.Equals(other.UserName)
+                    this.UserName == input.UserName ||
+                    (this.UserName != null &&
+                    this.UserName.Equals(input.UserName))
                 );
         }
 
@@ -131,18 +129,16 @@ namespace Genesys.Authentication.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.NewPassword != null)
-                    hash = hash * 59 + this.NewPassword.GetHashCode();
+                    hashCode = hashCode * 59 + this.NewPassword.GetHashCode();
                 if (this.OldPassword != null)
-                    hash = hash * 59 + this.OldPassword.GetHashCode();
+                    hashCode = hashCode * 59 + this.OldPassword.GetHashCode();
                 if (this.UserName != null)
-                    hash = hash * 59 + this.UserName.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.UserName.GetHashCode();
+                return hashCode;
             }
         }
 
