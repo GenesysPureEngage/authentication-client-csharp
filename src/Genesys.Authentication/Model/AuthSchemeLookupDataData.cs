@@ -25,25 +25,33 @@ using SwaggerDateConverter = Genesys.Authentication.Client.SwaggerDateConverter;
 namespace Genesys.Authentication.Model
 {
     /// <summary>
-    /// ChangePasswordOperation
+    /// AuthSchemeLookupDataData
     /// </summary>
     [DataContract]
-    public partial class ChangePasswordOperation :  IEquatable<ChangePasswordOperation>, IValidatableObject
+    public partial class AuthSchemeLookupDataData :  IEquatable<AuthSchemeLookupDataData>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="ChangePasswordOperation" /> class.
+        /// Initializes a new instance of the <see cref="AuthSchemeLookupDataData" /> class.
         /// </summary>
-        /// <param name="Data">Data.</param>
-        public ChangePasswordOperation(ChangePasswordOperationData Data = default(ChangePasswordOperationData))
+        /// <param name="Tenant">Tenant.</param>
+        /// <param name="UserName">UserName.</param>
+        public AuthSchemeLookupDataData(string Tenant = default(string), string UserName = default(string))
         {
-            this.Data = Data;
+            this.Tenant = Tenant;
+            this.UserName = UserName;
         }
         
         /// <summary>
-        /// Gets or Sets Data
+        /// Gets or Sets Tenant
         /// </summary>
-        [DataMember(Name="data", EmitDefaultValue=false)]
-        public ChangePasswordOperationData Data { get; set; }
+        [DataMember(Name="tenant", EmitDefaultValue=false)]
+        public string Tenant { get; set; }
+
+        /// <summary>
+        /// Gets or Sets UserName
+        /// </summary>
+        [DataMember(Name="userName", EmitDefaultValue=false)]
+        public string UserName { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -52,8 +60,9 @@ namespace Genesys.Authentication.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class ChangePasswordOperation {\n");
-            sb.Append("  Data: ").Append(Data).Append("\n");
+            sb.Append("class AuthSchemeLookupDataData {\n");
+            sb.Append("  Tenant: ").Append(Tenant).Append("\n");
+            sb.Append("  UserName: ").Append(UserName).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -74,24 +83,29 @@ namespace Genesys.Authentication.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as ChangePasswordOperation);
+            return this.Equals(input as AuthSchemeLookupDataData);
         }
 
         /// <summary>
-        /// Returns true if ChangePasswordOperation instances are equal
+        /// Returns true if AuthSchemeLookupDataData instances are equal
         /// </summary>
-        /// <param name="input">Instance of ChangePasswordOperation to be compared</param>
+        /// <param name="input">Instance of AuthSchemeLookupDataData to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ChangePasswordOperation input)
+        public bool Equals(AuthSchemeLookupDataData input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.Data == input.Data ||
-                    (this.Data != null &&
-                    this.Data.Equals(input.Data))
+                    this.Tenant == input.Tenant ||
+                    (this.Tenant != null &&
+                    this.Tenant.Equals(input.Tenant))
+                ) && 
+                (
+                    this.UserName == input.UserName ||
+                    (this.UserName != null &&
+                    this.UserName.Equals(input.UserName))
                 );
         }
 
@@ -104,8 +118,10 @@ namespace Genesys.Authentication.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Data != null)
-                    hashCode = hashCode * 59 + this.Data.GetHashCode();
+                if (this.Tenant != null)
+                    hashCode = hashCode * 59 + this.Tenant.GetHashCode();
+                if (this.UserName != null)
+                    hashCode = hashCode * 59 + this.UserName.GetHashCode();
                 return hashCode;
             }
         }

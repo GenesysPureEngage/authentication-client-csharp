@@ -25,41 +25,41 @@ using SwaggerDateConverter = Genesys.Authentication.Client.SwaggerDateConverter;
 namespace Genesys.Authentication.Model
 {
     /// <summary>
-    /// ApiResponseStatus
+    /// ChangePasswordOperationData
     /// </summary>
     [DataContract]
-    public partial class ApiResponseStatus :  IEquatable<ApiResponseStatus>, IValidatableObject
+    public partial class ChangePasswordOperationData :  IEquatable<ChangePasswordOperationData>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="ApiResponseStatus" /> class.
+        /// Initializes a new instance of the <see cref="ChangePasswordOperationData" /> class.
         /// </summary>
-        /// <param name="Code">Code.</param>
-        /// <param name="Detail">Detail.</param>
-        /// <param name="Message">Message.</param>
-        public ApiResponseStatus(int? Code = default(int?), Object Detail = default(Object), string Message = default(string))
+        /// <param name="NewPassword">NewPassword.</param>
+        /// <param name="OldPassword">OldPassword.</param>
+        /// <param name="UserName">UserName.</param>
+        public ChangePasswordOperationData(string NewPassword = default(string), string OldPassword = default(string), string UserName = default(string))
         {
-            this.Code = Code;
-            this.Detail = Detail;
-            this.Message = Message;
+            this.NewPassword = NewPassword;
+            this.OldPassword = OldPassword;
+            this.UserName = UserName;
         }
         
         /// <summary>
-        /// Gets or Sets Code
+        /// Gets or Sets NewPassword
         /// </summary>
-        [DataMember(Name="code", EmitDefaultValue=false)]
-        public int? Code { get; set; }
+        [DataMember(Name="newPassword", EmitDefaultValue=false)]
+        public string NewPassword { get; set; }
 
         /// <summary>
-        /// Gets or Sets Detail
+        /// Gets or Sets OldPassword
         /// </summary>
-        [DataMember(Name="detail", EmitDefaultValue=false)]
-        public Object Detail { get; set; }
+        [DataMember(Name="oldPassword", EmitDefaultValue=false)]
+        public string OldPassword { get; set; }
 
         /// <summary>
-        /// Gets or Sets Message
+        /// Gets or Sets UserName
         /// </summary>
-        [DataMember(Name="message", EmitDefaultValue=false)]
-        public string Message { get; set; }
+        [DataMember(Name="userName", EmitDefaultValue=false)]
+        public string UserName { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -68,10 +68,10 @@ namespace Genesys.Authentication.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class ApiResponseStatus {\n");
-            sb.Append("  Code: ").Append(Code).Append("\n");
-            sb.Append("  Detail: ").Append(Detail).Append("\n");
-            sb.Append("  Message: ").Append(Message).Append("\n");
+            sb.Append("class ChangePasswordOperationData {\n");
+            sb.Append("  NewPassword: ").Append(NewPassword).Append("\n");
+            sb.Append("  OldPassword: ").Append(OldPassword).Append("\n");
+            sb.Append("  UserName: ").Append(UserName).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -92,34 +92,34 @@ namespace Genesys.Authentication.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as ApiResponseStatus);
+            return this.Equals(input as ChangePasswordOperationData);
         }
 
         /// <summary>
-        /// Returns true if ApiResponseStatus instances are equal
+        /// Returns true if ChangePasswordOperationData instances are equal
         /// </summary>
-        /// <param name="input">Instance of ApiResponseStatus to be compared</param>
+        /// <param name="input">Instance of ChangePasswordOperationData to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ApiResponseStatus input)
+        public bool Equals(ChangePasswordOperationData input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.Code == input.Code ||
-                    (this.Code != null &&
-                    this.Code.Equals(input.Code))
+                    this.NewPassword == input.NewPassword ||
+                    (this.NewPassword != null &&
+                    this.NewPassword.Equals(input.NewPassword))
                 ) && 
                 (
-                    this.Detail == input.Detail ||
-                    (this.Detail != null &&
-                    this.Detail.Equals(input.Detail))
+                    this.OldPassword == input.OldPassword ||
+                    (this.OldPassword != null &&
+                    this.OldPassword.Equals(input.OldPassword))
                 ) && 
                 (
-                    this.Message == input.Message ||
-                    (this.Message != null &&
-                    this.Message.Equals(input.Message))
+                    this.UserName == input.UserName ||
+                    (this.UserName != null &&
+                    this.UserName.Equals(input.UserName))
                 );
         }
 
@@ -132,12 +132,12 @@ namespace Genesys.Authentication.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Code != null)
-                    hashCode = hashCode * 59 + this.Code.GetHashCode();
-                if (this.Detail != null)
-                    hashCode = hashCode * 59 + this.Detail.GetHashCode();
-                if (this.Message != null)
-                    hashCode = hashCode * 59 + this.Message.GetHashCode();
+                if (this.NewPassword != null)
+                    hashCode = hashCode * 59 + this.NewPassword.GetHashCode();
+                if (this.OldPassword != null)
+                    hashCode = hashCode * 59 + this.OldPassword.GetHashCode();
+                if (this.UserName != null)
+                    hashCode = hashCode * 59 + this.UserName.GetHashCode();
                 return hashCode;
             }
         }
