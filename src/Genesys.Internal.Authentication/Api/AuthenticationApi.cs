@@ -13,10 +13,10 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using RestSharp;
-using Genesys.Authentication.Client;
-using Genesys.Authentication.Model;
+using Genesys.Internal.Authentication.Client;
+using Genesys.Internal.Authentication.Model;
 
-namespace Genesys.Authentication.Api
+namespace Genesys.Internal.Authentication.Api
 {
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
@@ -30,7 +30,7 @@ namespace Genesys.Authentication.Api
         /// <remarks>
         /// Perform authorization based on the code grant type &amp;mdash; either Authorization Code Grant or Implicit Grant. For more information, see [Authorization Endpoint](https://tools.ietf.org/html/rfc6749#section-3.1). **Note:** For the optional **scope** parameter, the Authorization API supports only the &#39;*&#39; value.
         /// </remarks>
-        /// <exception cref="Genesys.Authentication.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Internal.Authentication.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="responseType">The response type to let the Authentication API know which grant flow you&#39;re using. Possible values are &#39;code&#39; for Authorization Code Grant or &#39;token&#39; for Implicit Grant. For more information about this parameter, see [Response Type](https://tools.ietf.org/html/rfc6749#section-3.1.1).</param>
         /// <param name="redirectUri">The URI that you want users to be redirected to after entering valid credentials during an Implicit or Authorization Code grant. The Authentication includes this URI as part of the URI it returns in the &#39;Location&#39; header.</param>
         /// <param name="clientId">The ID of the application or service that is registered as the client. You&#39;ll need to get this value from your PureEngage Cloud representative.</param>
@@ -45,7 +45,7 @@ namespace Genesys.Authentication.Api
         /// <remarks>
         /// Perform authorization based on the code grant type &amp;mdash; either Authorization Code Grant or Implicit Grant. For more information, see [Authorization Endpoint](https://tools.ietf.org/html/rfc6749#section-3.1). **Note:** For the optional **scope** parameter, the Authorization API supports only the &#39;*&#39; value.
         /// </remarks>
-        /// <exception cref="Genesys.Authentication.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Internal.Authentication.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="responseType">The response type to let the Authentication API know which grant flow you&#39;re using. Possible values are &#39;code&#39; for Authorization Code Grant or &#39;token&#39; for Implicit Grant. For more information about this parameter, see [Response Type](https://tools.ietf.org/html/rfc6749#section-3.1.1).</param>
         /// <param name="redirectUri">The URI that you want users to be redirected to after entering valid credentials during an Implicit or Authorization Code grant. The Authentication includes this URI as part of the URI it returns in the &#39;Location&#39; header.</param>
         /// <param name="clientId">The ID of the application or service that is registered as the client. You&#39;ll need to get this value from your PureEngage Cloud representative.</param>
@@ -59,7 +59,7 @@ namespace Genesys.Authentication.Api
         /// <remarks>
         /// Change the user&#39;s password.
         /// </remarks>
-        /// <exception cref="Genesys.Authentication.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Internal.Authentication.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="request">request</param>
         /// <param name="authorization">OAuth 2.0 Bearer Token. Example: \&quot;Authorization: bearer a4b5da75-a584-4053-9227-0f0ab23ff06e\&quot;  (optional, default to bearer)</param>
         /// <returns>ApiResponse</returns>
@@ -71,7 +71,7 @@ namespace Genesys.Authentication.Api
         /// <remarks>
         /// Change the user&#39;s password.
         /// </remarks>
-        /// <exception cref="Genesys.Authentication.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Internal.Authentication.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="request">request</param>
         /// <param name="authorization">OAuth 2.0 Bearer Token. Example: \&quot;Authorization: bearer a4b5da75-a584-4053-9227-0f0ab23ff06e\&quot;  (optional, default to bearer)</param>
         /// <returns>ApiResponse of ApiResponse</returns>
@@ -82,7 +82,7 @@ namespace Genesys.Authentication.Api
         /// <remarks>
         /// Get information about a user by their OAuth 2 access token.
         /// </remarks>
-        /// <exception cref="Genesys.Authentication.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Internal.Authentication.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization">The OAuth 2 bearer access token you received from &#x60;/auth/v3/oauth/token&#x60;. For example: \&quot;Authorization: bearer a4b5da75-a584-4053-9227-0f0ab23ff06e\&quot; </param>
         /// <returns>CloudUserDetails</returns>
         CloudUserDetails GetInfo (string authorization);
@@ -93,7 +93,7 @@ namespace Genesys.Authentication.Api
         /// <remarks>
         /// Get information about a user by their OAuth 2 access token.
         /// </remarks>
-        /// <exception cref="Genesys.Authentication.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Internal.Authentication.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization">The OAuth 2 bearer access token you received from &#x60;/auth/v3/oauth/token&#x60;. For example: \&quot;Authorization: bearer a4b5da75-a584-4053-9227-0f0ab23ff06e\&quot; </param>
         /// <returns>ApiResponse of CloudUserDetails</returns>
         ApiResponse<CloudUserDetails> GetInfoWithHttpInfo (string authorization);
@@ -103,7 +103,7 @@ namespace Genesys.Authentication.Api
         /// <remarks>
         /// Retrieve an access token based on the grant type &amp;mdash; Authorization Code Grant, Resource Owner Password Credentials Grant or Client Credentials Grant. For more information, see [Token Endpoint](https://tools.ietf.org/html/rfc6749). **Note:** For the optional **scope** parameter, the Authorization API supports only the &#39;*&#39; value.
         /// </remarks>
-        /// <exception cref="Genesys.Authentication.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Internal.Authentication.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="grantType">The grant type you use to implement authentication.</param>
         /// <param name="authorization">Basic authorization. For example: &#39;Authorization: Basic Y3...MQ&#x3D;&#x3D;&#39; (optional)</param>
         /// <param name="accept">The media type the Authentication API should should use for the response. For example: &#39;Accept: application/x-www-form-urlencoded&#39; (optional)</param>
@@ -121,7 +121,7 @@ namespace Genesys.Authentication.Api
         /// <remarks>
         /// Retrieve an access token based on the grant type &amp;mdash; Authorization Code Grant, Resource Owner Password Credentials Grant or Client Credentials Grant. For more information, see [Token Endpoint](https://tools.ietf.org/html/rfc6749). **Note:** For the optional **scope** parameter, the Authorization API supports only the &#39;*&#39; value.
         /// </remarks>
-        /// <exception cref="Genesys.Authentication.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Internal.Authentication.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="grantType">The grant type you use to implement authentication.</param>
         /// <param name="authorization">Basic authorization. For example: &#39;Authorization: Basic Y3...MQ&#x3D;&#x3D;&#39; (optional)</param>
         /// <param name="accept">The media type the Authentication API should should use for the response. For example: &#39;Accept: application/x-www-form-urlencoded&#39; (optional)</param>
@@ -138,7 +138,7 @@ namespace Genesys.Authentication.Api
         /// <remarks>
         /// Perform form-based authentication by submitting an agent&#39;s username and password.
         /// </remarks>
-        /// <exception cref="Genesys.Authentication.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Internal.Authentication.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="username">The agent&#39;s username, formatted as &#39;tenant\\username&#39;.</param>
         /// <param name="password">The agent&#39;s password.</param>
         /// <param name="saml">Specifies whether to login using [Security Assertion Markup Language](https://en.wikipedia.org/wiki/Security_Assertion_Markup_Language) (SAML). (optional)</param>
@@ -151,7 +151,7 @@ namespace Genesys.Authentication.Api
         /// <remarks>
         /// Perform form-based authentication by submitting an agent&#39;s username and password.
         /// </remarks>
-        /// <exception cref="Genesys.Authentication.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Internal.Authentication.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="username">The agent&#39;s username, formatted as &#39;tenant\\username&#39;.</param>
         /// <param name="password">The agent&#39;s password.</param>
         /// <param name="saml">Specifies whether to login using [Security Assertion Markup Language](https://en.wikipedia.org/wiki/Security_Assertion_Markup_Language) (SAML). (optional)</param>
@@ -163,7 +163,7 @@ namespace Genesys.Authentication.Api
         /// <remarks>
         /// Sign-out the current user and invalidate either the current token or all tokens associated with the user.
         /// </remarks>
-        /// <exception cref="Genesys.Authentication.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Internal.Authentication.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization">The OAuth 2 bearer access token you received from &#x60;/auth/v3/oauth/token&#x60;. For example: \&quot;Authorization: bearer a4b5da75-a584-4053-9227-0f0ab23ff06e\&quot; </param>
         /// <param name="global">Specifies whether to invalidate all tokens for the current user (&#x60;true&#x60;) or only the current token (&#x60;false&#x60;). (optional)</param>
         /// <returns>ApiResponse</returns>
@@ -175,7 +175,7 @@ namespace Genesys.Authentication.Api
         /// <remarks>
         /// Sign-out the current user and invalidate either the current token or all tokens associated with the user.
         /// </remarks>
-        /// <exception cref="Genesys.Authentication.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Internal.Authentication.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization">The OAuth 2 bearer access token you received from &#x60;/auth/v3/oauth/token&#x60;. For example: \&quot;Authorization: bearer a4b5da75-a584-4053-9227-0f0ab23ff06e\&quot; </param>
         /// <param name="global">Specifies whether to invalidate all tokens for the current user (&#x60;true&#x60;) or only the current token (&#x60;false&#x60;). (optional)</param>
         /// <returns>ApiResponse of ApiResponse</returns>
@@ -186,7 +186,7 @@ namespace Genesys.Authentication.Api
         /// <remarks>
         /// Get the authentication scheme by user name or tenant name. The return value is   &#39;saml&#39; if the contact center has [Security Assertion Markup Language](https://en.wikipedia.org/wiki/Security_Assertion_Markup_Language)   (SAML) enabled; otherwise, the return value is &#39;basic&#39;.
         /// </remarks>
-        /// <exception cref="Genesys.Authentication.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Internal.Authentication.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="lookupData">Data for scheme lookup. (optional)</param>
         /// <returns>ApiResponse</returns>
         ApiResponse TenantInfo (AuthSchemeLookupData lookupData = null);
@@ -197,7 +197,7 @@ namespace Genesys.Authentication.Api
         /// <remarks>
         /// Get the authentication scheme by user name or tenant name. The return value is   &#39;saml&#39; if the contact center has [Security Assertion Markup Language](https://en.wikipedia.org/wiki/Security_Assertion_Markup_Language)   (SAML) enabled; otherwise, the return value is &#39;basic&#39;.
         /// </remarks>
-        /// <exception cref="Genesys.Authentication.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Internal.Authentication.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="lookupData">Data for scheme lookup. (optional)</param>
         /// <returns>ApiResponse of ApiResponse</returns>
         ApiResponse<ApiResponse> TenantInfoWithHttpInfo (AuthSchemeLookupData lookupData = null);
@@ -209,7 +209,7 @@ namespace Genesys.Authentication.Api
         /// <remarks>
         /// Perform authorization based on the code grant type &amp;mdash; either Authorization Code Grant or Implicit Grant. For more information, see [Authorization Endpoint](https://tools.ietf.org/html/rfc6749#section-3.1). **Note:** For the optional **scope** parameter, the Authorization API supports only the &#39;*&#39; value.
         /// </remarks>
-        /// <exception cref="Genesys.Authentication.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Internal.Authentication.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="responseType">The response type to let the Authentication API know which grant flow you&#39;re using. Possible values are &#39;code&#39; for Authorization Code Grant or &#39;token&#39; for Implicit Grant. For more information about this parameter, see [Response Type](https://tools.ietf.org/html/rfc6749#section-3.1.1).</param>
         /// <param name="redirectUri">The URI that you want users to be redirected to after entering valid credentials during an Implicit or Authorization Code grant. The Authentication includes this URI as part of the URI it returns in the &#39;Location&#39; header.</param>
         /// <param name="clientId">The ID of the application or service that is registered as the client. You&#39;ll need to get this value from your PureEngage Cloud representative.</param>
@@ -224,7 +224,7 @@ namespace Genesys.Authentication.Api
         /// <remarks>
         /// Perform authorization based on the code grant type &amp;mdash; either Authorization Code Grant or Implicit Grant. For more information, see [Authorization Endpoint](https://tools.ietf.org/html/rfc6749#section-3.1). **Note:** For the optional **scope** parameter, the Authorization API supports only the &#39;*&#39; value.
         /// </remarks>
-        /// <exception cref="Genesys.Authentication.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Internal.Authentication.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="responseType">The response type to let the Authentication API know which grant flow you&#39;re using. Possible values are &#39;code&#39; for Authorization Code Grant or &#39;token&#39; for Implicit Grant. For more information about this parameter, see [Response Type](https://tools.ietf.org/html/rfc6749#section-3.1.1).</param>
         /// <param name="redirectUri">The URI that you want users to be redirected to after entering valid credentials during an Implicit or Authorization Code grant. The Authentication includes this URI as part of the URI it returns in the &#39;Location&#39; header.</param>
         /// <param name="clientId">The ID of the application or service that is registered as the client. You&#39;ll need to get this value from your PureEngage Cloud representative.</param>
@@ -238,7 +238,7 @@ namespace Genesys.Authentication.Api
         /// <remarks>
         /// Change the user&#39;s password.
         /// </remarks>
-        /// <exception cref="Genesys.Authentication.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Internal.Authentication.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="request">request</param>
         /// <param name="authorization">OAuth 2.0 Bearer Token. Example: \&quot;Authorization: bearer a4b5da75-a584-4053-9227-0f0ab23ff06e\&quot;  (optional, default to bearer)</param>
         /// <returns>Task of ApiResponse</returns>
@@ -250,7 +250,7 @@ namespace Genesys.Authentication.Api
         /// <remarks>
         /// Change the user&#39;s password.
         /// </remarks>
-        /// <exception cref="Genesys.Authentication.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Internal.Authentication.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="request">request</param>
         /// <param name="authorization">OAuth 2.0 Bearer Token. Example: \&quot;Authorization: bearer a4b5da75-a584-4053-9227-0f0ab23ff06e\&quot;  (optional, default to bearer)</param>
         /// <returns>Task of ApiResponse (ApiResponse)</returns>
@@ -261,7 +261,7 @@ namespace Genesys.Authentication.Api
         /// <remarks>
         /// Get information about a user by their OAuth 2 access token.
         /// </remarks>
-        /// <exception cref="Genesys.Authentication.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Internal.Authentication.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization">The OAuth 2 bearer access token you received from &#x60;/auth/v3/oauth/token&#x60;. For example: \&quot;Authorization: bearer a4b5da75-a584-4053-9227-0f0ab23ff06e\&quot; </param>
         /// <returns>Task of CloudUserDetails</returns>
         System.Threading.Tasks.Task<CloudUserDetails> GetInfoAsync (string authorization);
@@ -272,7 +272,7 @@ namespace Genesys.Authentication.Api
         /// <remarks>
         /// Get information about a user by their OAuth 2 access token.
         /// </remarks>
-        /// <exception cref="Genesys.Authentication.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Internal.Authentication.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization">The OAuth 2 bearer access token you received from &#x60;/auth/v3/oauth/token&#x60;. For example: \&quot;Authorization: bearer a4b5da75-a584-4053-9227-0f0ab23ff06e\&quot; </param>
         /// <returns>Task of ApiResponse (CloudUserDetails)</returns>
         System.Threading.Tasks.Task<ApiResponse<CloudUserDetails>> GetInfoAsyncWithHttpInfo (string authorization);
@@ -282,7 +282,7 @@ namespace Genesys.Authentication.Api
         /// <remarks>
         /// Retrieve an access token based on the grant type &amp;mdash; Authorization Code Grant, Resource Owner Password Credentials Grant or Client Credentials Grant. For more information, see [Token Endpoint](https://tools.ietf.org/html/rfc6749). **Note:** For the optional **scope** parameter, the Authorization API supports only the &#39;*&#39; value.
         /// </remarks>
-        /// <exception cref="Genesys.Authentication.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Internal.Authentication.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="grantType">The grant type you use to implement authentication.</param>
         /// <param name="authorization">Basic authorization. For example: &#39;Authorization: Basic Y3...MQ&#x3D;&#x3D;&#39; (optional)</param>
         /// <param name="accept">The media type the Authentication API should should use for the response. For example: &#39;Accept: application/x-www-form-urlencoded&#39; (optional)</param>
@@ -300,7 +300,7 @@ namespace Genesys.Authentication.Api
         /// <remarks>
         /// Retrieve an access token based on the grant type &amp;mdash; Authorization Code Grant, Resource Owner Password Credentials Grant or Client Credentials Grant. For more information, see [Token Endpoint](https://tools.ietf.org/html/rfc6749). **Note:** For the optional **scope** parameter, the Authorization API supports only the &#39;*&#39; value.
         /// </remarks>
-        /// <exception cref="Genesys.Authentication.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Internal.Authentication.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="grantType">The grant type you use to implement authentication.</param>
         /// <param name="authorization">Basic authorization. For example: &#39;Authorization: Basic Y3...MQ&#x3D;&#x3D;&#39; (optional)</param>
         /// <param name="accept">The media type the Authentication API should should use for the response. For example: &#39;Accept: application/x-www-form-urlencoded&#39; (optional)</param>
@@ -317,7 +317,7 @@ namespace Genesys.Authentication.Api
         /// <remarks>
         /// Perform form-based authentication by submitting an agent&#39;s username and password.
         /// </remarks>
-        /// <exception cref="Genesys.Authentication.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Internal.Authentication.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="username">The agent&#39;s username, formatted as &#39;tenant\\username&#39;.</param>
         /// <param name="password">The agent&#39;s password.</param>
         /// <param name="saml">Specifies whether to login using [Security Assertion Markup Language](https://en.wikipedia.org/wiki/Security_Assertion_Markup_Language) (SAML). (optional)</param>
@@ -330,7 +330,7 @@ namespace Genesys.Authentication.Api
         /// <remarks>
         /// Perform form-based authentication by submitting an agent&#39;s username and password.
         /// </remarks>
-        /// <exception cref="Genesys.Authentication.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Internal.Authentication.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="username">The agent&#39;s username, formatted as &#39;tenant\\username&#39;.</param>
         /// <param name="password">The agent&#39;s password.</param>
         /// <param name="saml">Specifies whether to login using [Security Assertion Markup Language](https://en.wikipedia.org/wiki/Security_Assertion_Markup_Language) (SAML). (optional)</param>
@@ -342,7 +342,7 @@ namespace Genesys.Authentication.Api
         /// <remarks>
         /// Sign-out the current user and invalidate either the current token or all tokens associated with the user.
         /// </remarks>
-        /// <exception cref="Genesys.Authentication.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Internal.Authentication.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization">The OAuth 2 bearer access token you received from &#x60;/auth/v3/oauth/token&#x60;. For example: \&quot;Authorization: bearer a4b5da75-a584-4053-9227-0f0ab23ff06e\&quot; </param>
         /// <param name="global">Specifies whether to invalidate all tokens for the current user (&#x60;true&#x60;) or only the current token (&#x60;false&#x60;). (optional)</param>
         /// <returns>Task of ApiResponse</returns>
@@ -354,7 +354,7 @@ namespace Genesys.Authentication.Api
         /// <remarks>
         /// Sign-out the current user and invalidate either the current token or all tokens associated with the user.
         /// </remarks>
-        /// <exception cref="Genesys.Authentication.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Internal.Authentication.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization">The OAuth 2 bearer access token you received from &#x60;/auth/v3/oauth/token&#x60;. For example: \&quot;Authorization: bearer a4b5da75-a584-4053-9227-0f0ab23ff06e\&quot; </param>
         /// <param name="global">Specifies whether to invalidate all tokens for the current user (&#x60;true&#x60;) or only the current token (&#x60;false&#x60;). (optional)</param>
         /// <returns>Task of ApiResponse (ApiResponse)</returns>
@@ -365,7 +365,7 @@ namespace Genesys.Authentication.Api
         /// <remarks>
         /// Get the authentication scheme by user name or tenant name. The return value is   &#39;saml&#39; if the contact center has [Security Assertion Markup Language](https://en.wikipedia.org/wiki/Security_Assertion_Markup_Language)   (SAML) enabled; otherwise, the return value is &#39;basic&#39;.
         /// </remarks>
-        /// <exception cref="Genesys.Authentication.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Internal.Authentication.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="lookupData">Data for scheme lookup. (optional)</param>
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse> TenantInfoAsync (AuthSchemeLookupData lookupData = null);
@@ -376,7 +376,7 @@ namespace Genesys.Authentication.Api
         /// <remarks>
         /// Get the authentication scheme by user name or tenant name. The return value is   &#39;saml&#39; if the contact center has [Security Assertion Markup Language](https://en.wikipedia.org/wiki/Security_Assertion_Markup_Language)   (SAML) enabled; otherwise, the return value is &#39;basic&#39;.
         /// </remarks>
-        /// <exception cref="Genesys.Authentication.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Internal.Authentication.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="lookupData">Data for scheme lookup. (optional)</param>
         /// <returns>Task of ApiResponse (ApiResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ApiResponse>> TenantInfoAsyncWithHttpInfo (AuthSchemeLookupData lookupData = null);
@@ -388,7 +388,7 @@ namespace Genesys.Authentication.Api
     /// </summary>
     public partial class AuthenticationApi : IAuthenticationApi
     {
-        private Genesys.Authentication.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
+        private Genesys.Internal.Authentication.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="AuthenticationApi"/> class.
@@ -398,7 +398,7 @@ namespace Genesys.Authentication.Api
         {
             this.Configuration = new Configuration { BasePath = basePath };
 
-            ExceptionFactory = Genesys.Authentication.Client.Configuration.DefaultExceptionFactory;
+            ExceptionFactory = Genesys.Internal.Authentication.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -414,7 +414,7 @@ namespace Genesys.Authentication.Api
             else
                 this.Configuration = configuration;
 
-            ExceptionFactory = Genesys.Authentication.Client.Configuration.DefaultExceptionFactory;
+            ExceptionFactory = Genesys.Internal.Authentication.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -445,7 +445,7 @@ namespace Genesys.Authentication.Api
         /// <summary>
         /// Provides a factory method hook for the creation of exceptions.
         /// </summary>
-        public Genesys.Authentication.Client.ExceptionFactory ExceptionFactory
+        public Genesys.Internal.Authentication.Client.ExceptionFactory ExceptionFactory
         {
             get
             {
@@ -483,7 +483,7 @@ namespace Genesys.Authentication.Api
         /// <summary>
         /// Perform authorization. Perform authorization based on the code grant type &amp;mdash; either Authorization Code Grant or Implicit Grant. For more information, see [Authorization Endpoint](https://tools.ietf.org/html/rfc6749#section-3.1). **Note:** For the optional **scope** parameter, the Authorization API supports only the &#39;*&#39; value.
         /// </summary>
-        /// <exception cref="Genesys.Authentication.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Internal.Authentication.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="responseType">The response type to let the Authentication API know which grant flow you&#39;re using. Possible values are &#39;code&#39; for Authorization Code Grant or &#39;token&#39; for Implicit Grant. For more information about this parameter, see [Response Type](https://tools.ietf.org/html/rfc6749#section-3.1.1).</param>
         /// <param name="redirectUri">The URI that you want users to be redirected to after entering valid credentials during an Implicit or Authorization Code grant. The Authentication includes this URI as part of the URI it returns in the &#39;Location&#39; header.</param>
         /// <param name="clientId">The ID of the application or service that is registered as the client. You&#39;ll need to get this value from your PureEngage Cloud representative.</param>
@@ -498,7 +498,7 @@ namespace Genesys.Authentication.Api
         /// <summary>
         /// Perform authorization. Perform authorization based on the code grant type &amp;mdash; either Authorization Code Grant or Implicit Grant. For more information, see [Authorization Endpoint](https://tools.ietf.org/html/rfc6749#section-3.1). **Note:** For the optional **scope** parameter, the Authorization API supports only the &#39;*&#39; value.
         /// </summary>
-        /// <exception cref="Genesys.Authentication.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Internal.Authentication.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="responseType">The response type to let the Authentication API know which grant flow you&#39;re using. Possible values are &#39;code&#39; for Authorization Code Grant or &#39;token&#39; for Implicit Grant. For more information about this parameter, see [Response Type](https://tools.ietf.org/html/rfc6749#section-3.1.1).</param>
         /// <param name="redirectUri">The URI that you want users to be redirected to after entering valid credentials during an Implicit or Authorization Code grant. The Authentication includes this URI as part of the URI it returns in the &#39;Location&#39; header.</param>
         /// <param name="clientId">The ID of the application or service that is registered as the client. You&#39;ll need to get this value from your PureEngage Cloud representative.</param>
@@ -567,7 +567,7 @@ namespace Genesys.Authentication.Api
         /// <summary>
         /// Perform authorization. Perform authorization based on the code grant type &amp;mdash; either Authorization Code Grant or Implicit Grant. For more information, see [Authorization Endpoint](https://tools.ietf.org/html/rfc6749#section-3.1). **Note:** For the optional **scope** parameter, the Authorization API supports only the &#39;*&#39; value.
         /// </summary>
-        /// <exception cref="Genesys.Authentication.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Internal.Authentication.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="responseType">The response type to let the Authentication API know which grant flow you&#39;re using. Possible values are &#39;code&#39; for Authorization Code Grant or &#39;token&#39; for Implicit Grant. For more information about this parameter, see [Response Type](https://tools.ietf.org/html/rfc6749#section-3.1.1).</param>
         /// <param name="redirectUri">The URI that you want users to be redirected to after entering valid credentials during an Implicit or Authorization Code grant. The Authentication includes this URI as part of the URI it returns in the &#39;Location&#39; header.</param>
         /// <param name="clientId">The ID of the application or service that is registered as the client. You&#39;ll need to get this value from your PureEngage Cloud representative.</param>
@@ -583,7 +583,7 @@ namespace Genesys.Authentication.Api
         /// <summary>
         /// Perform authorization. Perform authorization based on the code grant type &amp;mdash; either Authorization Code Grant or Implicit Grant. For more information, see [Authorization Endpoint](https://tools.ietf.org/html/rfc6749#section-3.1). **Note:** For the optional **scope** parameter, the Authorization API supports only the &#39;*&#39; value.
         /// </summary>
-        /// <exception cref="Genesys.Authentication.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Internal.Authentication.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="responseType">The response type to let the Authentication API know which grant flow you&#39;re using. Possible values are &#39;code&#39; for Authorization Code Grant or &#39;token&#39; for Implicit Grant. For more information about this parameter, see [Response Type](https://tools.ietf.org/html/rfc6749#section-3.1.1).</param>
         /// <param name="redirectUri">The URI that you want users to be redirected to after entering valid credentials during an Implicit or Authorization Code grant. The Authentication includes this URI as part of the URI it returns in the &#39;Location&#39; header.</param>
         /// <param name="clientId">The ID of the application or service that is registered as the client. You&#39;ll need to get this value from your PureEngage Cloud representative.</param>
@@ -652,7 +652,7 @@ namespace Genesys.Authentication.Api
         /// <summary>
         /// Change password. Change the user&#39;s password.
         /// </summary>
-        /// <exception cref="Genesys.Authentication.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Internal.Authentication.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="request">request</param>
         /// <param name="authorization">OAuth 2.0 Bearer Token. Example: \&quot;Authorization: bearer a4b5da75-a584-4053-9227-0f0ab23ff06e\&quot;  (optional, default to bearer)</param>
         /// <returns>ApiResponse</returns>
@@ -665,7 +665,7 @@ namespace Genesys.Authentication.Api
         /// <summary>
         /// Change password. Change the user&#39;s password.
         /// </summary>
-        /// <exception cref="Genesys.Authentication.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Internal.Authentication.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="request">request</param>
         /// <param name="authorization">OAuth 2.0 Bearer Token. Example: \&quot;Authorization: bearer a4b5da75-a584-4053-9227-0f0ab23ff06e\&quot;  (optional, default to bearer)</param>
         /// <returns>ApiResponse of ApiResponse</returns>
@@ -729,7 +729,7 @@ namespace Genesys.Authentication.Api
         /// <summary>
         /// Change password. Change the user&#39;s password.
         /// </summary>
-        /// <exception cref="Genesys.Authentication.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Internal.Authentication.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="request">request</param>
         /// <param name="authorization">OAuth 2.0 Bearer Token. Example: \&quot;Authorization: bearer a4b5da75-a584-4053-9227-0f0ab23ff06e\&quot;  (optional, default to bearer)</param>
         /// <returns>Task of ApiResponse</returns>
@@ -743,7 +743,7 @@ namespace Genesys.Authentication.Api
         /// <summary>
         /// Change password. Change the user&#39;s password.
         /// </summary>
-        /// <exception cref="Genesys.Authentication.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Internal.Authentication.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="request">request</param>
         /// <param name="authorization">OAuth 2.0 Bearer Token. Example: \&quot;Authorization: bearer a4b5da75-a584-4053-9227-0f0ab23ff06e\&quot;  (optional, default to bearer)</param>
         /// <returns>Task of ApiResponse (ApiResponse)</returns>
@@ -807,7 +807,7 @@ namespace Genesys.Authentication.Api
         /// <summary>
         /// Get user information by access token. Get information about a user by their OAuth 2 access token.
         /// </summary>
-        /// <exception cref="Genesys.Authentication.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Internal.Authentication.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization">The OAuth 2 bearer access token you received from &#x60;/auth/v3/oauth/token&#x60;. For example: \&quot;Authorization: bearer a4b5da75-a584-4053-9227-0f0ab23ff06e\&quot; </param>
         /// <returns>CloudUserDetails</returns>
         public CloudUserDetails GetInfo (string authorization)
@@ -819,7 +819,7 @@ namespace Genesys.Authentication.Api
         /// <summary>
         /// Get user information by access token. Get information about a user by their OAuth 2 access token.
         /// </summary>
-        /// <exception cref="Genesys.Authentication.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Internal.Authentication.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization">The OAuth 2 bearer access token you received from &#x60;/auth/v3/oauth/token&#x60;. For example: \&quot;Authorization: bearer a4b5da75-a584-4053-9227-0f0ab23ff06e\&quot; </param>
         /// <returns>ApiResponse of CloudUserDetails</returns>
         public ApiResponse< CloudUserDetails > GetInfoWithHttpInfo (string authorization)
@@ -874,7 +874,7 @@ namespace Genesys.Authentication.Api
         /// <summary>
         /// Get user information by access token. Get information about a user by their OAuth 2 access token.
         /// </summary>
-        /// <exception cref="Genesys.Authentication.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Internal.Authentication.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization">The OAuth 2 bearer access token you received from &#x60;/auth/v3/oauth/token&#x60;. For example: \&quot;Authorization: bearer a4b5da75-a584-4053-9227-0f0ab23ff06e\&quot; </param>
         /// <returns>Task of CloudUserDetails</returns>
         public async System.Threading.Tasks.Task<CloudUserDetails> GetInfoAsync (string authorization)
@@ -887,7 +887,7 @@ namespace Genesys.Authentication.Api
         /// <summary>
         /// Get user information by access token. Get information about a user by their OAuth 2 access token.
         /// </summary>
-        /// <exception cref="Genesys.Authentication.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Internal.Authentication.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization">The OAuth 2 bearer access token you received from &#x60;/auth/v3/oauth/token&#x60;. For example: \&quot;Authorization: bearer a4b5da75-a584-4053-9227-0f0ab23ff06e\&quot; </param>
         /// <returns>Task of ApiResponse (CloudUserDetails)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<CloudUserDetails>> GetInfoAsyncWithHttpInfo (string authorization)
@@ -942,7 +942,7 @@ namespace Genesys.Authentication.Api
         /// <summary>
         /// Retrieve access token. Retrieve an access token based on the grant type &amp;mdash; Authorization Code Grant, Resource Owner Password Credentials Grant or Client Credentials Grant. For more information, see [Token Endpoint](https://tools.ietf.org/html/rfc6749). **Note:** For the optional **scope** parameter, the Authorization API supports only the &#39;*&#39; value.
         /// </summary>
-        /// <exception cref="Genesys.Authentication.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Internal.Authentication.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="grantType">The grant type you use to implement authentication.</param>
         /// <param name="authorization">Basic authorization. For example: &#39;Authorization: Basic Y3...MQ&#x3D;&#x3D;&#39; (optional)</param>
         /// <param name="accept">The media type the Authentication API should should use for the response. For example: &#39;Accept: application/x-www-form-urlencoded&#39; (optional)</param>
@@ -961,7 +961,7 @@ namespace Genesys.Authentication.Api
         /// <summary>
         /// Retrieve access token. Retrieve an access token based on the grant type &amp;mdash; Authorization Code Grant, Resource Owner Password Credentials Grant or Client Credentials Grant. For more information, see [Token Endpoint](https://tools.ietf.org/html/rfc6749). **Note:** For the optional **scope** parameter, the Authorization API supports only the &#39;*&#39; value.
         /// </summary>
-        /// <exception cref="Genesys.Authentication.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Internal.Authentication.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="grantType">The grant type you use to implement authentication.</param>
         /// <param name="authorization">Basic authorization. For example: &#39;Authorization: Basic Y3...MQ&#x3D;&#x3D;&#39; (optional)</param>
         /// <param name="accept">The media type the Authentication API should should use for the response. For example: &#39;Accept: application/x-www-form-urlencoded&#39; (optional)</param>
@@ -1030,7 +1030,7 @@ namespace Genesys.Authentication.Api
         /// <summary>
         /// Retrieve access token. Retrieve an access token based on the grant type &amp;mdash; Authorization Code Grant, Resource Owner Password Credentials Grant or Client Credentials Grant. For more information, see [Token Endpoint](https://tools.ietf.org/html/rfc6749). **Note:** For the optional **scope** parameter, the Authorization API supports only the &#39;*&#39; value.
         /// </summary>
-        /// <exception cref="Genesys.Authentication.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Internal.Authentication.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="grantType">The grant type you use to implement authentication.</param>
         /// <param name="authorization">Basic authorization. For example: &#39;Authorization: Basic Y3...MQ&#x3D;&#x3D;&#39; (optional)</param>
         /// <param name="accept">The media type the Authentication API should should use for the response. For example: &#39;Accept: application/x-www-form-urlencoded&#39; (optional)</param>
@@ -1050,7 +1050,7 @@ namespace Genesys.Authentication.Api
         /// <summary>
         /// Retrieve access token. Retrieve an access token based on the grant type &amp;mdash; Authorization Code Grant, Resource Owner Password Credentials Grant or Client Credentials Grant. For more information, see [Token Endpoint](https://tools.ietf.org/html/rfc6749). **Note:** For the optional **scope** parameter, the Authorization API supports only the &#39;*&#39; value.
         /// </summary>
-        /// <exception cref="Genesys.Authentication.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Internal.Authentication.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="grantType">The grant type you use to implement authentication.</param>
         /// <param name="authorization">Basic authorization. For example: &#39;Authorization: Basic Y3...MQ&#x3D;&#x3D;&#39; (optional)</param>
         /// <param name="accept">The media type the Authentication API should should use for the response. For example: &#39;Accept: application/x-www-form-urlencoded&#39; (optional)</param>
@@ -1119,7 +1119,7 @@ namespace Genesys.Authentication.Api
         /// <summary>
         /// Perform form-based authentication. Perform form-based authentication by submitting an agent&#39;s username and password.
         /// </summary>
-        /// <exception cref="Genesys.Authentication.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Internal.Authentication.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="username">The agent&#39;s username, formatted as &#39;tenant\\username&#39;.</param>
         /// <param name="password">The agent&#39;s password.</param>
         /// <param name="saml">Specifies whether to login using [Security Assertion Markup Language](https://en.wikipedia.org/wiki/Security_Assertion_Markup_Language) (SAML). (optional)</param>
@@ -1132,7 +1132,7 @@ namespace Genesys.Authentication.Api
         /// <summary>
         /// Perform form-based authentication. Perform form-based authentication by submitting an agent&#39;s username and password.
         /// </summary>
-        /// <exception cref="Genesys.Authentication.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Internal.Authentication.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="username">The agent&#39;s username, formatted as &#39;tenant\\username&#39;.</param>
         /// <param name="password">The agent&#39;s password.</param>
         /// <param name="saml">Specifies whether to login using [Security Assertion Markup Language](https://en.wikipedia.org/wiki/Security_Assertion_Markup_Language) (SAML). (optional)</param>
@@ -1194,7 +1194,7 @@ namespace Genesys.Authentication.Api
         /// <summary>
         /// Perform form-based authentication. Perform form-based authentication by submitting an agent&#39;s username and password.
         /// </summary>
-        /// <exception cref="Genesys.Authentication.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Internal.Authentication.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="username">The agent&#39;s username, formatted as &#39;tenant\\username&#39;.</param>
         /// <param name="password">The agent&#39;s password.</param>
         /// <param name="saml">Specifies whether to login using [Security Assertion Markup Language](https://en.wikipedia.org/wiki/Security_Assertion_Markup_Language) (SAML). (optional)</param>
@@ -1208,7 +1208,7 @@ namespace Genesys.Authentication.Api
         /// <summary>
         /// Perform form-based authentication. Perform form-based authentication by submitting an agent&#39;s username and password.
         /// </summary>
-        /// <exception cref="Genesys.Authentication.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Internal.Authentication.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="username">The agent&#39;s username, formatted as &#39;tenant\\username&#39;.</param>
         /// <param name="password">The agent&#39;s password.</param>
         /// <param name="saml">Specifies whether to login using [Security Assertion Markup Language](https://en.wikipedia.org/wiki/Security_Assertion_Markup_Language) (SAML). (optional)</param>
@@ -1270,7 +1270,7 @@ namespace Genesys.Authentication.Api
         /// <summary>
         /// Sign-out a logged in user. Sign-out the current user and invalidate either the current token or all tokens associated with the user.
         /// </summary>
-        /// <exception cref="Genesys.Authentication.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Internal.Authentication.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization">The OAuth 2 bearer access token you received from &#x60;/auth/v3/oauth/token&#x60;. For example: \&quot;Authorization: bearer a4b5da75-a584-4053-9227-0f0ab23ff06e\&quot; </param>
         /// <param name="global">Specifies whether to invalidate all tokens for the current user (&#x60;true&#x60;) or only the current token (&#x60;false&#x60;). (optional)</param>
         /// <returns>ApiResponse</returns>
@@ -1283,7 +1283,7 @@ namespace Genesys.Authentication.Api
         /// <summary>
         /// Sign-out a logged in user. Sign-out the current user and invalidate either the current token or all tokens associated with the user.
         /// </summary>
-        /// <exception cref="Genesys.Authentication.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Internal.Authentication.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization">The OAuth 2 bearer access token you received from &#x60;/auth/v3/oauth/token&#x60;. For example: \&quot;Authorization: bearer a4b5da75-a584-4053-9227-0f0ab23ff06e\&quot; </param>
         /// <param name="global">Specifies whether to invalidate all tokens for the current user (&#x60;true&#x60;) or only the current token (&#x60;false&#x60;). (optional)</param>
         /// <returns>ApiResponse of ApiResponse</returns>
@@ -1340,7 +1340,7 @@ namespace Genesys.Authentication.Api
         /// <summary>
         /// Sign-out a logged in user. Sign-out the current user and invalidate either the current token or all tokens associated with the user.
         /// </summary>
-        /// <exception cref="Genesys.Authentication.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Internal.Authentication.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization">The OAuth 2 bearer access token you received from &#x60;/auth/v3/oauth/token&#x60;. For example: \&quot;Authorization: bearer a4b5da75-a584-4053-9227-0f0ab23ff06e\&quot; </param>
         /// <param name="global">Specifies whether to invalidate all tokens for the current user (&#x60;true&#x60;) or only the current token (&#x60;false&#x60;). (optional)</param>
         /// <returns>Task of ApiResponse</returns>
@@ -1354,7 +1354,7 @@ namespace Genesys.Authentication.Api
         /// <summary>
         /// Sign-out a logged in user. Sign-out the current user and invalidate either the current token or all tokens associated with the user.
         /// </summary>
-        /// <exception cref="Genesys.Authentication.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Internal.Authentication.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization">The OAuth 2 bearer access token you received from &#x60;/auth/v3/oauth/token&#x60;. For example: \&quot;Authorization: bearer a4b5da75-a584-4053-9227-0f0ab23ff06e\&quot; </param>
         /// <param name="global">Specifies whether to invalidate all tokens for the current user (&#x60;true&#x60;) or only the current token (&#x60;false&#x60;). (optional)</param>
         /// <returns>Task of ApiResponse (ApiResponse)</returns>
@@ -1411,7 +1411,7 @@ namespace Genesys.Authentication.Api
         /// <summary>
         /// Get authentication scheme. Get the authentication scheme by user name or tenant name. The return value is   &#39;saml&#39; if the contact center has [Security Assertion Markup Language](https://en.wikipedia.org/wiki/Security_Assertion_Markup_Language)   (SAML) enabled; otherwise, the return value is &#39;basic&#39;.
         /// </summary>
-        /// <exception cref="Genesys.Authentication.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Internal.Authentication.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="lookupData">Data for scheme lookup. (optional)</param>
         /// <returns>ApiResponse</returns>
         public ApiResponse TenantInfo (AuthSchemeLookupData lookupData = null)
@@ -1423,7 +1423,7 @@ namespace Genesys.Authentication.Api
         /// <summary>
         /// Get authentication scheme. Get the authentication scheme by user name or tenant name. The return value is   &#39;saml&#39; if the contact center has [Security Assertion Markup Language](https://en.wikipedia.org/wiki/Security_Assertion_Markup_Language)   (SAML) enabled; otherwise, the return value is &#39;basic&#39;.
         /// </summary>
-        /// <exception cref="Genesys.Authentication.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Internal.Authentication.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="lookupData">Data for scheme lookup. (optional)</param>
         /// <returns>ApiResponse of ApiResponse</returns>
         public ApiResponse< ApiResponse > TenantInfoWithHttpInfo (AuthSchemeLookupData lookupData = null)
@@ -1482,7 +1482,7 @@ namespace Genesys.Authentication.Api
         /// <summary>
         /// Get authentication scheme. Get the authentication scheme by user name or tenant name. The return value is   &#39;saml&#39; if the contact center has [Security Assertion Markup Language](https://en.wikipedia.org/wiki/Security_Assertion_Markup_Language)   (SAML) enabled; otherwise, the return value is &#39;basic&#39;.
         /// </summary>
-        /// <exception cref="Genesys.Authentication.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Internal.Authentication.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="lookupData">Data for scheme lookup. (optional)</param>
         /// <returns>Task of ApiResponse</returns>
         public async System.Threading.Tasks.Task<ApiResponse> TenantInfoAsync (AuthSchemeLookupData lookupData = null)
@@ -1495,7 +1495,7 @@ namespace Genesys.Authentication.Api
         /// <summary>
         /// Get authentication scheme. Get the authentication scheme by user name or tenant name. The return value is   &#39;saml&#39; if the contact center has [Security Assertion Markup Language](https://en.wikipedia.org/wiki/Security_Assertion_Markup_Language)   (SAML) enabled; otherwise, the return value is &#39;basic&#39;.
         /// </summary>
-        /// <exception cref="Genesys.Authentication.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Internal.Authentication.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="lookupData">Data for scheme lookup. (optional)</param>
         /// <returns>Task of ApiResponse (ApiResponse)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<ApiResponse>> TenantInfoAsyncWithHttpInfo (AuthSchemeLookupData lookupData = null)

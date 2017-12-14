@@ -10,7 +10,7 @@
 
 using System;
 
-namespace Genesys.Authentication.Client
+namespace Genesys.Internal.Authentication.Client
 {
     /// <summary>
     /// API Exception

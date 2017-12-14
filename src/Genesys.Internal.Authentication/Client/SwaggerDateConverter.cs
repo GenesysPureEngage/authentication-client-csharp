@@ -10,7 +10,7 @@
 
 using Newtonsoft.Json.Converters;
 
-namespace Genesys.Authentication.Client
+namespace Genesys.Internal.Authentication.Client
 {
     /// <summary>
     /// Formatter for 'date' swagger formats ss defined by full-date - RFC3339

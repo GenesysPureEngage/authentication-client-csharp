@@ -11,7 +11,7 @@
 
 using System.Collections.Generic;
 
-namespace Genesys.Authentication.Client
+namespace Genesys.Internal.Authentication.Client
 {
     /// <summary>
     /// Represents a readable-only configuration contract.

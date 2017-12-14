@@ -20,9 +20,9 @@ using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
-using SwaggerDateConverter = Genesys.Authentication.Client.SwaggerDateConverter;
+using SwaggerDateConverter = Genesys.Internal.Authentication.Client.SwaggerDateConverter;
 
-namespace Genesys.Authentication.Model
+namespace Genesys.Internal.Authentication.Model
 {
     /// <summary>
     /// ChangePasswordOperation

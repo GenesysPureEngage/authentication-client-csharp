@@ -12,7 +12,7 @@
 using System;
 using RestSharp;
 
-namespace Genesys.Authentication.Client
+namespace Genesys.Internal.Authentication.Client
 {
     /// <summary>
     /// A delegate to ExceptionFactory method

@@ -15,7 +15,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using RestSharp;
 
-namespace Genesys.Authentication.Client
+namespace Genesys.Internal.Authentication.Client
 {
     /// <summary>
     /// Represents configuration aspects required to interact with the API endpoints.

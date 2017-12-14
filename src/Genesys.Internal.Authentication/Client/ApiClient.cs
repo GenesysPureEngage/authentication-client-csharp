@@ -21,7 +21,7 @@ using System.Text;
 using Newtonsoft.Json;
 using RestSharp;
 
-namespace Genesys.Authentication.Client
+namespace Genesys.Internal.Authentication.Client
 {
     /// <summary>
     /// API client is mainly responsible for making the HTTP call to the API backend.
@@ -52,7 +52,7 @@ namespace Genesys.Authentication.Client
         /// </summary>
         public ApiClient()
         {
-            Configuration = Genesys.Authentication.Client.Configuration.Default;
+            Configuration = Genesys.Internal.Authentication.Client.Configuration.Default;
             RestClient = new RestClient("https://gws-usw1-int.genhtcc.com/auth/v3");
         }
 
@@ -63,7 +63,7 @@ namespace Genesys.Authentication.Client
         /// <param name="config">An instance of Configuration.</param>
         public ApiClient(Configuration config)
         {
-            Configuration = config ?? Genesys.Authentication.Client.Configuration.Default;
+            Configuration = config ?? Genesys.Internal.Authentication.Client.Configuration.Default;
 
             RestClient = new RestClient(Configuration.BasePath);
         }

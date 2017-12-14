@@ -20,38 +20,30 @@ using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
-using SwaggerDateConverter = Genesys.Authentication.Client.SwaggerDateConverter;
+using SwaggerDateConverter = Genesys.Internal.Authentication.Client.SwaggerDateConverter;
 
-namespace Genesys.Authentication.Model
+namespace Genesys.Internal.Authentication.Model
 {
     /// <summary>
-    /// AuthSchemeLookupData
+    /// UserRole
     /// </summary>
     [DataContract]
-    public partial class AuthSchemeLookupData :  IEquatable<AuthSchemeLookupData>, IValidatableObject
+    public partial class UserRole :  IEquatable<UserRole>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="AuthSchemeLookupData" /> class.
+        /// Initializes a new instance of the <see cref="UserRole" /> class.
         /// </summary>
-        /// <param name="Tenant">Tenant.</param>
-        /// <param name="UserName">UserName.</param>
-        public AuthSchemeLookupData(string Tenant = default(string), string UserName = default(string))
+        /// <param name="Name">Name.</param>
+        public UserRole(string Name = default(string))
         {
-            this.Tenant = Tenant;
-            this.UserName = UserName;
+            this.Name = Name;
         }
         
         /// <summary>
-        /// Gets or Sets Tenant
+        /// Gets or Sets Name
         /// </summary>
-        [DataMember(Name="tenant", EmitDefaultValue=false)]
-        public string Tenant { get; set; }
-
-        /// <summary>
-        /// Gets or Sets UserName
-        /// </summary>
-        [DataMember(Name="userName", EmitDefaultValue=false)]
-        public string UserName { get; set; }
+        [DataMember(Name="name", EmitDefaultValue=false)]
+        public string Name { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -60,9 +52,8 @@ namespace Genesys.Authentication.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class AuthSchemeLookupData {\n");
-            sb.Append("  Tenant: ").Append(Tenant).Append("\n");
-            sb.Append("  UserName: ").Append(UserName).Append("\n");
+            sb.Append("class UserRole {\n");
+            sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -83,29 +74,24 @@ namespace Genesys.Authentication.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as AuthSchemeLookupData);
+            return this.Equals(input as UserRole);
         }
 
         /// <summary>
-        /// Returns true if AuthSchemeLookupData instances are equal
+        /// Returns true if UserRole instances are equal
         /// </summary>
-        /// <param name="input">Instance of AuthSchemeLookupData to be compared</param>
+        /// <param name="input">Instance of UserRole to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(AuthSchemeLookupData input)
+        public bool Equals(UserRole input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.Tenant == input.Tenant ||
-                    (this.Tenant != null &&
-                    this.Tenant.Equals(input.Tenant))
-                ) && 
-                (
-                    this.UserName == input.UserName ||
-                    (this.UserName != null &&
-                    this.UserName.Equals(input.UserName))
+                    this.Name == input.Name ||
+                    (this.Name != null &&
+                    this.Name.Equals(input.Name))
                 );
         }
 
@@ -118,10 +104,8 @@ namespace Genesys.Authentication.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Tenant != null)
-                    hashCode = hashCode * 59 + this.Tenant.GetHashCode();
-                if (this.UserName != null)
-                    hashCode = hashCode * 59 + this.UserName.GetHashCode();
+                if (this.Name != null)
+                    hashCode = hashCode * 59 + this.Name.GetHashCode();
                 return hashCode;
             }
         }

@@ -20,30 +20,38 @@ using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
-using SwaggerDateConverter = Genesys.Authentication.Client.SwaggerDateConverter;
+using SwaggerDateConverter = Genesys.Internal.Authentication.Client.SwaggerDateConverter;
 
-namespace Genesys.Authentication.Model
+namespace Genesys.Internal.Authentication.Model
 {
     /// <summary>
-    /// UserRole
+    /// ErrorResponse
     /// </summary>
     [DataContract]
-    public partial class UserRole :  IEquatable<UserRole>, IValidatableObject
+    public partial class ErrorResponse :  IEquatable<ErrorResponse>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="UserRole" /> class.
+        /// Initializes a new instance of the <see cref="ErrorResponse" /> class.
         /// </summary>
-        /// <param name="Name">Name.</param>
-        public UserRole(string Name = default(string))
+        /// <param name="Error">Error.</param>
+        /// <param name="ErrorDescription">ErrorDescription.</param>
+        public ErrorResponse(string Error = default(string), string ErrorDescription = default(string))
         {
-            this.Name = Name;
+            this.Error = Error;
+            this.ErrorDescription = ErrorDescription;
         }
         
         /// <summary>
-        /// Gets or Sets Name
+        /// Gets or Sets Error
         /// </summary>
-        [DataMember(Name="name", EmitDefaultValue=false)]
-        public string Name { get; set; }
+        [DataMember(Name="error", EmitDefaultValue=false)]
+        public string Error { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ErrorDescription
+        /// </summary>
+        [DataMember(Name="error_description", EmitDefaultValue=false)]
+        public string ErrorDescription { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -52,8 +60,9 @@ namespace Genesys.Authentication.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class UserRole {\n");
-            sb.Append("  Name: ").Append(Name).Append("\n");
+            sb.Append("class ErrorResponse {\n");
+            sb.Append("  Error: ").Append(Error).Append("\n");
+            sb.Append("  ErrorDescription: ").Append(ErrorDescription).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -74,24 +83,29 @@ namespace Genesys.Authentication.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as UserRole);
+            return this.Equals(input as ErrorResponse);
         }
 
         /// <summary>
-        /// Returns true if UserRole instances are equal
+        /// Returns true if ErrorResponse instances are equal
         /// </summary>
-        /// <param name="input">Instance of UserRole to be compared</param>
+        /// <param name="input">Instance of ErrorResponse to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(UserRole input)
+        public bool Equals(ErrorResponse input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.Name == input.Name ||
-                    (this.Name != null &&
-                    this.Name.Equals(input.Name))
+                    this.Error == input.Error ||
+                    (this.Error != null &&
+                    this.Error.Equals(input.Error))
+                ) && 
+                (
+                    this.ErrorDescription == input.ErrorDescription ||
+                    (this.ErrorDescription != null &&
+                    this.ErrorDescription.Equals(input.ErrorDescription))
                 );
         }
 
@@ -104,8 +118,10 @@ namespace Genesys.Authentication.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Name != null)
-                    hashCode = hashCode * 59 + this.Name.GetHashCode();
+                if (this.Error != null)
+                    hashCode = hashCode * 59 + this.Error.GetHashCode();
+                if (this.ErrorDescription != null)
+                    hashCode = hashCode * 59 + this.ErrorDescription.GetHashCode();
                 return hashCode;
             }
         }

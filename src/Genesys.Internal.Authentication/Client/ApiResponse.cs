@@ -11,7 +11,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Genesys.Authentication.Client
+namespace Genesys.Internal.Authentication.Client
 {
     /// <summary>
     /// API Response

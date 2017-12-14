@@ -20,38 +20,38 @@ using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
-using SwaggerDateConverter = Genesys.Authentication.Client.SwaggerDateConverter;
+using SwaggerDateConverter = Genesys.Internal.Authentication.Client.SwaggerDateConverter;
 
-namespace Genesys.Authentication.Model
+namespace Genesys.Internal.Authentication.Model
 {
     /// <summary>
-    /// ErrorResponse
+    /// AuthSchemeLookupData
     /// </summary>
     [DataContract]
-    public partial class ErrorResponse :  IEquatable<ErrorResponse>, IValidatableObject
+    public partial class AuthSchemeLookupData :  IEquatable<AuthSchemeLookupData>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="ErrorResponse" /> class.
+        /// Initializes a new instance of the <see cref="AuthSchemeLookupData" /> class.
         /// </summary>
-        /// <param name="Error">Error.</param>
-        /// <param name="ErrorDescription">ErrorDescription.</param>
-        public ErrorResponse(string Error = default(string), string ErrorDescription = default(string))
+        /// <param name="Tenant">Tenant.</param>
+        /// <param name="UserName">UserName.</param>
+        public AuthSchemeLookupData(string Tenant = default(string), string UserName = default(string))
         {
-            this.Error = Error;
-            this.ErrorDescription = ErrorDescription;
+            this.Tenant = Tenant;
+            this.UserName = UserName;
         }
         
         /// <summary>
-        /// Gets or Sets Error
+        /// Gets or Sets Tenant
         /// </summary>
-        [DataMember(Name="error", EmitDefaultValue=false)]
-        public string Error { get; set; }
+        [DataMember(Name="tenant", EmitDefaultValue=false)]
+        public string Tenant { get; set; }
 
         /// <summary>
-        /// Gets or Sets ErrorDescription
+        /// Gets or Sets UserName
         /// </summary>
-        [DataMember(Name="error_description", EmitDefaultValue=false)]
-        public string ErrorDescription { get; set; }
+        [DataMember(Name="userName", EmitDefaultValue=false)]
+        public string UserName { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -60,9 +60,9 @@ namespace Genesys.Authentication.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class ErrorResponse {\n");
-            sb.Append("  Error: ").Append(Error).Append("\n");
-            sb.Append("  ErrorDescription: ").Append(ErrorDescription).Append("\n");
+            sb.Append("class AuthSchemeLookupData {\n");
+            sb.Append("  Tenant: ").Append(Tenant).Append("\n");
+            sb.Append("  UserName: ").Append(UserName).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -83,29 +83,29 @@ namespace Genesys.Authentication.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as ErrorResponse);
+            return this.Equals(input as AuthSchemeLookupData);
         }
 
         /// <summary>
-        /// Returns true if ErrorResponse instances are equal
+        /// Returns true if AuthSchemeLookupData instances are equal
         /// </summary>
-        /// <param name="input">Instance of ErrorResponse to be compared</param>
+        /// <param name="input">Instance of AuthSchemeLookupData to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ErrorResponse input)
+        public bool Equals(AuthSchemeLookupData input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.Error == input.Error ||
-                    (this.Error != null &&
-                    this.Error.Equals(input.Error))
+                    this.Tenant == input.Tenant ||
+                    (this.Tenant != null &&
+                    this.Tenant.Equals(input.Tenant))
                 ) && 
                 (
-                    this.ErrorDescription == input.ErrorDescription ||
-                    (this.ErrorDescription != null &&
-                    this.ErrorDescription.Equals(input.ErrorDescription))
+                    this.UserName == input.UserName ||
+                    (this.UserName != null &&
+                    this.UserName.Equals(input.UserName))
                 );
         }
 
@@ -118,10 +118,10 @@ namespace Genesys.Authentication.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Error != null)
-                    hashCode = hashCode * 59 + this.Error.GetHashCode();
-                if (this.ErrorDescription != null)
-                    hashCode = hashCode * 59 + this.ErrorDescription.GetHashCode();
+                if (this.Tenant != null)
+                    hashCode = hashCode * 59 + this.Tenant.GetHashCode();
+                if (this.UserName != null)
+                    hashCode = hashCode * 59 + this.UserName.GetHashCode();
                 return hashCode;
             }
         }
