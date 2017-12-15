@@ -53,12 +53,12 @@ namespace Genesys.Internal.Authentication.Client
         public ApiClient()
         {
             Configuration = Genesys.Internal.Authentication.Client.Configuration.Default;
-            RestClient = new RestClient("https://gws-usw1-int.genhtcc.com/auth/v3");
+            RestClient = new RestClient("https://your-server.com/auth/v3");
         }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ApiClient" /> class
-        /// with default base path (https://gws-usw1-int.genhtcc.com/auth/v3).
+        /// with default base path (https://your-server.com/auth/v3).
         /// </summary>
         /// <param name="config">An instance of Configuration.</param>
         public ApiClient(Configuration config)
@@ -73,7 +73,7 @@ namespace Genesys.Internal.Authentication.Client
         /// with default configuration.
         /// </summary>
         /// <param name="basePath">The base path.</param>
-        public ApiClient(String basePath = "https://gws-usw1-int.genhtcc.com/auth/v3")
+        public ApiClient(String basePath = "https://your-server.com/auth/v3")
         {
            if (String.IsNullOrEmpty(basePath))
                 throw new ArgumentException("basePath cannot be empty");
