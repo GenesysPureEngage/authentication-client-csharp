@@ -12,7 +12,7 @@ OpenAPI spec version: 9.0.000.00.978
     
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{68D62EC0-6F9A-4226-A343-97FB88DA0A50}</ProjectGuid>
+    <ProjectGuid>{7487649C-F183-458F-8C88-78F4E8038583}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Genesys.Internal.Authentication</RootNamespace>
