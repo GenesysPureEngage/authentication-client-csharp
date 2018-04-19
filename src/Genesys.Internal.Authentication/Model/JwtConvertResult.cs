@@ -25,54 +25,25 @@ using SwaggerDateConverter = Genesys.Internal.Authentication.Client.SwaggerDateC
 namespace Genesys.Internal.Authentication.Model
 {
     /// <summary>
-    /// AuthSchemeLookupData
+    /// JwtConvertResult
     /// </summary>
     [DataContract]
-    public partial class AuthSchemeLookupData :  IEquatable<AuthSchemeLookupData>, IValidatableObject
+    public partial class JwtConvertResult :  IEquatable<JwtConvertResult>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="AuthSchemeLookupData" /> class.
+        /// Initializes a new instance of the <see cref="JwtConvertResult" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected AuthSchemeLookupData() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="AuthSchemeLookupData" /> class.
-        /// </summary>
-        /// <param name="UserName">UserName (required).</param>
-        /// <param name="Tenant">Tenant (required).</param>
-        public AuthSchemeLookupData(string UserName = default(string), string Tenant = default(string))
+        /// <param name="JwtToken">JwtToken.</param>
+        public JwtConvertResult(string JwtToken = default(string))
         {
-            // to ensure "UserName" is required (not null)
-            if (UserName == null)
-            {
-                throw new InvalidDataException("UserName is a required property for AuthSchemeLookupData and cannot be null");
-            }
-            else
-            {
-                this.UserName = UserName;
-            }
-            // to ensure "Tenant" is required (not null)
-            if (Tenant == null)
-            {
-                throw new InvalidDataException("Tenant is a required property for AuthSchemeLookupData and cannot be null");
-            }
-            else
-            {
-                this.Tenant = Tenant;
-            }
+            this.JwtToken = JwtToken;
         }
         
         /// <summary>
-        /// Gets or Sets UserName
+        /// Gets or Sets JwtToken
         /// </summary>
-        [DataMember(Name="userName", EmitDefaultValue=false)]
-        public string UserName { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Tenant
-        /// </summary>
-        [DataMember(Name="tenant", EmitDefaultValue=false)]
-        public string Tenant { get; set; }
+        [DataMember(Name="jwtToken", EmitDefaultValue=false)]
+        public string JwtToken { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -81,9 +52,8 @@ namespace Genesys.Internal.Authentication.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class AuthSchemeLookupData {\n");
-            sb.Append("  UserName: ").Append(UserName).Append("\n");
-            sb.Append("  Tenant: ").Append(Tenant).Append("\n");
+            sb.Append("class JwtConvertResult {\n");
+            sb.Append("  JwtToken: ").Append(JwtToken).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -104,29 +74,24 @@ namespace Genesys.Internal.Authentication.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as AuthSchemeLookupData);
+            return this.Equals(input as JwtConvertResult);
         }
 
         /// <summary>
-        /// Returns true if AuthSchemeLookupData instances are equal
+        /// Returns true if JwtConvertResult instances are equal
         /// </summary>
-        /// <param name="input">Instance of AuthSchemeLookupData to be compared</param>
+        /// <param name="input">Instance of JwtConvertResult to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(AuthSchemeLookupData input)
+        public bool Equals(JwtConvertResult input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.UserName == input.UserName ||
-                    (this.UserName != null &&
-                    this.UserName.Equals(input.UserName))
-                ) && 
-                (
-                    this.Tenant == input.Tenant ||
-                    (this.Tenant != null &&
-                    this.Tenant.Equals(input.Tenant))
+                    this.JwtToken == input.JwtToken ||
+                    (this.JwtToken != null &&
+                    this.JwtToken.Equals(input.JwtToken))
                 );
         }
 
@@ -139,10 +104,8 @@ namespace Genesys.Internal.Authentication.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.UserName != null)
-                    hashCode = hashCode * 59 + this.UserName.GetHashCode();
-                if (this.Tenant != null)
-                    hashCode = hashCode * 59 + this.Tenant.GetHashCode();
+                if (this.JwtToken != null)
+                    hashCode = hashCode * 59 + this.JwtToken.GetHashCode();
                 return hashCode;
             }
         }
