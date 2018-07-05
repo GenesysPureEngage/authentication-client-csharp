@@ -111,48 +111,50 @@ namespace Genesys.Internal.Authentication.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="input">Object to be compared</param>
+        /// <param name="obj">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object input)
+        public override bool Equals(object obj)
         {
-            return this.Equals(input as DefaultOAuth2AccessToken);
+            // credit: http://stackoverflow.com/a/10454552/677735
+            return this.Equals(obj as DefaultOAuth2AccessToken);
         }
 
         /// <summary>
         /// Returns true if DefaultOAuth2AccessToken instances are equal
         /// </summary>
-        /// <param name="input">Instance of DefaultOAuth2AccessToken to be compared</param>
+        /// <param name="other">Instance of DefaultOAuth2AccessToken to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(DefaultOAuth2AccessToken input)
+        public bool Equals(DefaultOAuth2AccessToken other)
         {
-            if (input == null)
+            // credit: http://stackoverflow.com/a/10454552/677735
+            if (other == null)
                 return false;
 
             return 
                 (
-                    this.AccessToken == input.AccessToken ||
-                    (this.AccessToken != null &&
-                    this.AccessToken.Equals(input.AccessToken))
+                    this.AccessToken == other.AccessToken ||
+                    this.AccessToken != null &&
+                    this.AccessToken.Equals(other.AccessToken)
                 ) && 
                 (
-                    this.ExpiresIn == input.ExpiresIn ||
-                    (this.ExpiresIn != null &&
-                    this.ExpiresIn.Equals(input.ExpiresIn))
+                    this.ExpiresIn == other.ExpiresIn ||
+                    this.ExpiresIn != null &&
+                    this.ExpiresIn.Equals(other.ExpiresIn)
                 ) && 
                 (
-                    this.RefreshToken == input.RefreshToken ||
-                    (this.RefreshToken != null &&
-                    this.RefreshToken.Equals(input.RefreshToken))
+                    this.RefreshToken == other.RefreshToken ||
+                    this.RefreshToken != null &&
+                    this.RefreshToken.Equals(other.RefreshToken)
                 ) && 
                 (
-                    this.Scope == input.Scope ||
-                    (this.Scope != null &&
-                    this.Scope.Equals(input.Scope))
+                    this.Scope == other.Scope ||
+                    this.Scope != null &&
+                    this.Scope.Equals(other.Scope)
                 ) && 
                 (
-                    this.TokenType == input.TokenType ||
-                    (this.TokenType != null &&
-                    this.TokenType.Equals(input.TokenType))
+                    this.TokenType == other.TokenType ||
+                    this.TokenType != null &&
+                    this.TokenType.Equals(other.TokenType)
                 );
         }
 
@@ -162,20 +164,22 @@ namespace Genesys.Internal.Authentication.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
+            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hashCode = 41;
+                int hash = 41;
+                // Suitable nullity checks etc, of course :)
                 if (this.AccessToken != null)
-                    hashCode = hashCode * 59 + this.AccessToken.GetHashCode();
+                    hash = hash * 59 + this.AccessToken.GetHashCode();
                 if (this.ExpiresIn != null)
-                    hashCode = hashCode * 59 + this.ExpiresIn.GetHashCode();
+                    hash = hash * 59 + this.ExpiresIn.GetHashCode();
                 if (this.RefreshToken != null)
-                    hashCode = hashCode * 59 + this.RefreshToken.GetHashCode();
+                    hash = hash * 59 + this.RefreshToken.GetHashCode();
                 if (this.Scope != null)
-                    hashCode = hashCode * 59 + this.Scope.GetHashCode();
+                    hash = hash * 59 + this.Scope.GetHashCode();
                 if (this.TokenType != null)
-                    hashCode = hashCode * 59 + this.TokenType.GetHashCode();
-                return hashCode;
+                    hash = hash * 59 + this.TokenType.GetHashCode();
+                return hash;
             }
         }
 
