@@ -450,15 +450,9 @@ namespace Genesys.Internal.Authentication.Api
         /// <returns></returns>
         public AuthenticationApi(String basePath)
         {
-            this.Configuration = new Configuration(new ApiClient(basePath));
+            this.Configuration = new Configuration { BasePath = basePath };
 
             ExceptionFactory = Genesys.Internal.Authentication.Client.Configuration.DefaultExceptionFactory;
-
-            // ensure API client has configuration ready
-            if (Configuration.ApiClient.Configuration == null)
-            {
-                this.Configuration.ApiClient.Configuration = this.Configuration;
-            }
         }
 
         /// <summary>
@@ -475,12 +469,6 @@ namespace Genesys.Internal.Authentication.Api
                 this.Configuration = configuration;
 
             ExceptionFactory = Genesys.Internal.Authentication.Client.Configuration.DefaultExceptionFactory;
-
-            // ensure API client has configuration ready
-            if (Configuration.ApiClient.Configuration == null)
-            {
-                this.Configuration.ApiClient.Configuration = this.Configuration;
-            }
         }
 
         /// <summary>
@@ -529,9 +517,9 @@ namespace Genesys.Internal.Authentication.Api
         /// </summary>
         /// <returns>Dictionary of HTTP header</returns>
         [Obsolete("DefaultHeader is deprecated, please use Configuration.DefaultHeader instead.")]
-        public Dictionary<String, String> DefaultHeader()
+        public IDictionary<String, String> DefaultHeader()
         {
-            return this.Configuration.DefaultHeader;
+            return new ReadOnlyDictionary<string, string>(this.Configuration.DefaultHeader);
         }
 
         /// <summary>
@@ -587,7 +575,7 @@ namespace Genesys.Internal.Authentication.Api
 
             var localVarPath = "/oauth/authorize";
             var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
@@ -607,11 +595,11 @@ namespace Genesys.Internal.Authentication.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (responseType != null) localVarQueryParams.Add("response_type", Configuration.ApiClient.ParameterToString(responseType)); // query parameter
-            if (scope != null) localVarQueryParams.Add("scope", Configuration.ApiClient.ParameterToString(scope)); // query parameter
-            if (redirectUri != null) localVarQueryParams.Add("redirect_uri", Configuration.ApiClient.ParameterToString(redirectUri)); // query parameter
-            if (clientId != null) localVarQueryParams.Add("client_id", Configuration.ApiClient.ParameterToString(clientId)); // query parameter
-            if (hideTenant != null) localVarQueryParams.Add("hideTenant", Configuration.ApiClient.ParameterToString(hideTenant)); // query parameter
+            if (responseType != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "response_type", responseType)); // query parameter
+            if (scope != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "scope", scope)); // query parameter
+            if (redirectUri != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "redirect_uri", redirectUri)); // query parameter
+            if (clientId != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "client_id", clientId)); // query parameter
+            if (hideTenant != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "hideTenant", hideTenant)); // query parameter
             if (authorization != null) localVarHeaderParams.Add("Authorization", Configuration.ApiClient.ParameterToString(authorization)); // header parameter
 
 
@@ -675,7 +663,7 @@ namespace Genesys.Internal.Authentication.Api
 
             var localVarPath = "/oauth/authorize";
             var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
@@ -695,11 +683,11 @@ namespace Genesys.Internal.Authentication.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (responseType != null) localVarQueryParams.Add("response_type", Configuration.ApiClient.ParameterToString(responseType)); // query parameter
-            if (scope != null) localVarQueryParams.Add("scope", Configuration.ApiClient.ParameterToString(scope)); // query parameter
-            if (redirectUri != null) localVarQueryParams.Add("redirect_uri", Configuration.ApiClient.ParameterToString(redirectUri)); // query parameter
-            if (clientId != null) localVarQueryParams.Add("client_id", Configuration.ApiClient.ParameterToString(clientId)); // query parameter
-            if (hideTenant != null) localVarQueryParams.Add("hideTenant", Configuration.ApiClient.ParameterToString(hideTenant)); // query parameter
+            if (responseType != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "response_type", responseType)); // query parameter
+            if (scope != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "scope", scope)); // query parameter
+            if (redirectUri != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "redirect_uri", redirectUri)); // query parameter
+            if (clientId != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "client_id", clientId)); // query parameter
+            if (hideTenant != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "hideTenant", hideTenant)); // query parameter
             if (authorization != null) localVarHeaderParams.Add("Authorization", Configuration.ApiClient.ParameterToString(authorization)); // header parameter
 
 
@@ -749,7 +737,7 @@ namespace Genesys.Internal.Authentication.Api
 
             var localVarPath = "/change-password";
             var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
@@ -827,7 +815,7 @@ namespace Genesys.Internal.Authentication.Api
 
             var localVarPath = "/change-password";
             var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
@@ -902,7 +890,7 @@ namespace Genesys.Internal.Authentication.Api
 
             var localVarPath = "/userinfo";
             var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
@@ -970,7 +958,7 @@ namespace Genesys.Internal.Authentication.Api
 
             var localVarPath = "/userinfo";
             var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
@@ -1051,7 +1039,7 @@ namespace Genesys.Internal.Authentication.Api
 
             var localVarPath = "/oauth/token";
             var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
@@ -1140,7 +1128,7 @@ namespace Genesys.Internal.Authentication.Api
 
             var localVarPath = "/oauth/token";
             var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
@@ -1220,7 +1208,7 @@ namespace Genesys.Internal.Authentication.Api
 
             var localVarPath = "/sign-in";
             var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
@@ -1296,7 +1284,7 @@ namespace Genesys.Internal.Authentication.Api
 
             var localVarPath = "/sign-in";
             var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
@@ -1367,7 +1355,7 @@ namespace Genesys.Internal.Authentication.Api
 
             var localVarPath = "/sign-out";
             var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
@@ -1387,7 +1375,7 @@ namespace Genesys.Internal.Authentication.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (global != null) localVarQueryParams.Add("global", Configuration.ApiClient.ParameterToString(global)); // query parameter
+            if (global != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "global", global)); // query parameter
             if (authorization != null) localVarHeaderParams.Add("Authorization", Configuration.ApiClient.ParameterToString(authorization)); // header parameter
 
 
@@ -1438,7 +1426,7 @@ namespace Genesys.Internal.Authentication.Api
 
             var localVarPath = "/sign-out";
             var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
@@ -1458,7 +1446,7 @@ namespace Genesys.Internal.Authentication.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (global != null) localVarQueryParams.Add("global", Configuration.ApiClient.ParameterToString(global)); // query parameter
+            if (global != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "global", global)); // query parameter
             if (authorization != null) localVarHeaderParams.Add("Authorization", Configuration.ApiClient.ParameterToString(authorization)); // header parameter
 
 
@@ -1510,7 +1498,7 @@ namespace Genesys.Internal.Authentication.Api
 
             var localVarPath = "/sign-out";
             var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
@@ -1530,8 +1518,8 @@ namespace Genesys.Internal.Authentication.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (global != null) localVarQueryParams.Add("global", Configuration.ApiClient.ParameterToString(global)); // query parameter
-            if (redirectUri != null) localVarQueryParams.Add("redirectUri", Configuration.ApiClient.ParameterToString(redirectUri)); // query parameter
+            if (global != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "global", global)); // query parameter
+            if (redirectUri != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "redirectUri", redirectUri)); // query parameter
             if (authorization != null) localVarHeaderParams.Add("Authorization", Configuration.ApiClient.ParameterToString(authorization)); // header parameter
 
 
@@ -1584,7 +1572,7 @@ namespace Genesys.Internal.Authentication.Api
 
             var localVarPath = "/sign-out";
             var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
@@ -1604,8 +1592,8 @@ namespace Genesys.Internal.Authentication.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (global != null) localVarQueryParams.Add("global", Configuration.ApiClient.ParameterToString(global)); // query parameter
-            if (redirectUri != null) localVarQueryParams.Add("redirectUri", Configuration.ApiClient.ParameterToString(redirectUri)); // query parameter
+            if (global != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "global", global)); // query parameter
+            if (redirectUri != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "redirectUri", redirectUri)); // query parameter
             if (authorization != null) localVarHeaderParams.Add("Authorization", Configuration.ApiClient.ParameterToString(authorization)); // header parameter
 
 
@@ -1650,7 +1638,7 @@ namespace Genesys.Internal.Authentication.Api
 
             var localVarPath = "/auth-scheme";
             var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
@@ -1722,7 +1710,7 @@ namespace Genesys.Internal.Authentication.Api
 
             var localVarPath = "/auth-scheme";
             var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();

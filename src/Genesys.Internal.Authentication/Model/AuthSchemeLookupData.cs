@@ -100,35 +100,33 @@ namespace Genesys.Internal.Authentication.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as AuthSchemeLookupData);
+            return this.Equals(input as AuthSchemeLookupData);
         }
 
         /// <summary>
         /// Returns true if AuthSchemeLookupData instances are equal
         /// </summary>
-        /// <param name="other">Instance of AuthSchemeLookupData to be compared</param>
+        /// <param name="input">Instance of AuthSchemeLookupData to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(AuthSchemeLookupData other)
+        public bool Equals(AuthSchemeLookupData input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.UserName == other.UserName ||
-                    this.UserName != null &&
-                    this.UserName.Equals(other.UserName)
+                    this.UserName == input.UserName ||
+                    (this.UserName != null &&
+                    this.UserName.Equals(input.UserName))
                 ) && 
                 (
-                    this.Tenant == other.Tenant ||
-                    this.Tenant != null &&
-                    this.Tenant.Equals(other.Tenant)
+                    this.Tenant == input.Tenant ||
+                    (this.Tenant != null &&
+                    this.Tenant.Equals(input.Tenant))
                 );
         }
 
@@ -138,16 +136,14 @@ namespace Genesys.Internal.Authentication.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.UserName != null)
-                    hash = hash * 59 + this.UserName.GetHashCode();
+                    hashCode = hashCode * 59 + this.UserName.GetHashCode();
                 if (this.Tenant != null)
-                    hash = hash * 59 + this.Tenant.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.Tenant.GetHashCode();
+                return hashCode;
             }
         }
 
